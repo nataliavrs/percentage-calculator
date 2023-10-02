@@ -1,0 +1,27 @@
+{
+  "name": "percentage-calculator",
+  "version": "1.0.0",
+  "description": "App to calculate percentages.",
+  "main": "main.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nataliavrs/percentage-calculator.git"
+  },
+  "author": "Natalia Veras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nataliavrs/percentage-calculator/issues"
+  },
+  "homepage": "https://github.com/nataliavrs/percentage-calculator#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "sass": "^1.68.0"
+  }
+}
