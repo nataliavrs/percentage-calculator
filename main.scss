@@ -1,0 +1,35 @@
+$color-background-calculator: #dbdad9;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  background: $color-background-calculator;
+  // height: 5rem;
+  border-radius: 1rem;
+  .calculation-form {
+    display: flex;
+    justify-content: center;
+    .form-content {
+      display: flex;
+      // height: 2rem;
+      justify-content: center;
+      h4 {
+        padding: 5px;
+      }
+    }
+  }
+}

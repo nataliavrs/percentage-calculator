@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Nunito Sans, sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.calculator {
+  background: #dbdad9;
+  border-radius: 1rem;
+  justify-content: center;
+  display: flex;
+}
+
+.calculator .calculation-form, .calculator .calculation-form .form-content {
+  justify-content: center;
+  display: flex;
+}
+
+.calculator .calculation-form .form-content h4 {
+  padding: 5px;
+}
+
+/*# sourceMappingURL=index.b1276d39.css.map */
