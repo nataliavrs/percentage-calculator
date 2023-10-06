@@ -1,5 +1,4 @@
 import View from "./View.js";
-
 class CalculatorView extends View {
   _parentElement = document.querySelector(".calculation-form");
 
@@ -11,7 +10,7 @@ class CalculatorView extends View {
             <h4>% of</h4>
             <input type="text" name="" id="" />
             <h4>?</h4>
-            <button><span>Calculate</span></button>
+            <button class="calculate-btn"><span>Calculate</span></button>
         </div>
     `;
   }

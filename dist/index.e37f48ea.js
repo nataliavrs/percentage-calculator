@@ -577,16 +577,25 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _calculatorViewJs = require("./views/calculatorView.js");
 var _calculatorViewJsDefault = parcelHelpers.interopDefault(_calculatorViewJs);
+var _resultsViewJs = require("./views/resultsView.js");
+var _resultsViewJsDefault = parcelHelpers.interopDefault(_resultsViewJs);
+var _modelJs = require("./model.js");
 if (module.hot) module.hot.accept();
 const controlCalculation = function() {
     (0, _calculatorViewJsDefault.default).render();
 };
+const controlResults = function() {
+    console.log(_modelJs.state);
+    const result = _modelJs?.state?.results?.quantityKnowingTotal;
+    (0, _resultsViewJsDefault.default).render(result);
+};
 const init = function() {
     controlCalculation();
+    controlResults();
 };
 init();
 
-},{"./views/calculatorView.js":"e6BL6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e6BL6":[function(require,module,exports) {
+},{"./views/calculatorView.js":"e6BL6","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/resultsView.js":"cSbZE"}],"e6BL6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
@@ -601,14 +610,27 @@ class CalculatorView extends (0, _viewJsDefault.default) {
             <h4>% of</h4>
             <input type="text" name="" id="" />
             <h4>?</h4>
-            <button><span>Calculate</span></button>
+            <button class="calculate-btn"><span>Calculate</span></button>
         </div>
     `;
     }
 }
 exports.default = new CalculatorView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"5cUXS"}],"gkKU3":[function(require,module,exports) {
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5cUXS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    _data;
+    render(data) {
+        console.log("render view");
+        const markup = this._generateMarkup(data);
+        this._parentElement.innerHTML = markup;
+    }
+}
+exports.default = View;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -638,19 +660,31 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"5cUXS":[function(require,module,exports) {
+},{}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-class View {
-    _data;
-    render(data) {
-        console.log("render view");
-        const markup = this._generateMarkup(data);
-        this._parentElement.innerHTML = markup;
+parcelHelpers.export(exports, "state", ()=>state);
+const state = {
+    results: {
+        quantityKnowingTotal: 0,
+        totalKnowingQuantityPercentage: 0,
+        percentageOfValue: 0
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cSbZE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class ResultsView extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector(".results");
+    _generateMarkup(data) {
+        return "aoosaosoaoso";
     }
 }
-exports.default = View;
+exports.default = new ResultsView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"5cUXS"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
 
 //# sourceMappingURL=index.e37f48ea.js.map
