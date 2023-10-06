@@ -1,4 +1,9 @@
-class View {
+export default class View {
   _data;
-  render(data) {}
+
+  render(data) {
+    console.log("render view");
+    const markup = this._generateMarkup(data);
+    this._parentElement.innerHTML = markup;
+  }
 }
