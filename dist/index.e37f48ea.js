@@ -589,26 +589,46 @@ const controlResults = function() {
     const result = _modelJs?.state?.results?.quantityKnowingTotal;
     (0, _resultsViewJsDefault.default).render(result);
 };
+/**
+ * @description Find the percentage of a number
+ * @param data Percentage that we want to find of a number and number itself
+ */ const calculateOne = function(data) {
+    return data.number1 / 100 * data.number2;
+};
 const init = function() {
     controlCalculation();
+    (0, _calculatorViewJsDefault.default).addHandlerCalculate(calculateOne);
     controlResults();
 };
 init();
 
-},{"./views/calculatorView.js":"e6BL6","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/resultsView.js":"cSbZE"}],"e6BL6":[function(require,module,exports) {
+},{"./views/calculatorView.js":"e6BL6","./views/resultsView.js":"cSbZE","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e6BL6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class CalculatorView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculation-form");
+    addHandlerCalculate(handler) {
+        this._parentElement.addEventListener("click", function(e) {
+            e.preventDefault();
+            const button = e.target.closest("button");
+            if (!button) return;
+            const percentage = +document.getElementById("percentage").value;
+            const total = +document.getElementById("total").value;
+            handler({
+                number1: percentage,
+                number2: total
+            });
+        });
+    }
     _generateMarkup() {
         return `
         <div class="form-content">
             <h4>What is</h4>
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="percentage" />
             <h4>% of</h4>
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="total" />
             <h4>?</h4>
             <button class="calculate-btn"><span>Calculate</span></button>
         </div>
@@ -660,19 +680,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"Y4A21":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "state", ()=>state);
-const state = {
-    results: {
-        quantityKnowingTotal: 0,
-        totalKnowingQuantityPercentage: 0,
-        percentageOfValue: 0
-    }
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cSbZE":[function(require,module,exports) {
+},{}],"cSbZE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
@@ -685,6 +693,18 @@ class ResultsView extends (0, _viewJsDefault.default) {
 }
 exports.default = new ResultsView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"5cUXS"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+const state = {
+    results: {
+        quantityKnowingTotal: 0,
+        totalKnowingQuantityPercentage: 0,
+        percentageOfValue: 0
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
 
 //# sourceMappingURL=index.e37f48ea.js.map

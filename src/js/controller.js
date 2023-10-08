@@ -16,8 +16,17 @@ const controlResults = function () {
   resultsView.render(result);
 };
 
+/**
+ * @description Find the percentage of a number
+ * @param data Percentage that we want to find of a number and number itself
+ */
+const calculateOne = function (data) {
+  return (data.number1 / 100) * data.number2;
+};
+
 const init = function () {
   controlCalculation();
+  calculatorView.addHandlerCalculate(calculateOne);
   controlResults();
 };
 init();
