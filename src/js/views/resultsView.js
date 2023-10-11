@@ -4,7 +4,6 @@ class ResultsView extends View {
   _parentElement = document.querySelector(".results");
 
   _generateMarkup(data) {
-    return "aoosaosoaoso";
     return `<input type="text" disabled placeholder="Result" value="${data}"/>`;
   }
 }
