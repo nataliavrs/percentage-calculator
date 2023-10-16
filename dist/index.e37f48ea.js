@@ -609,18 +609,42 @@ const init = function() {
 };
 init();
 
-},{"./views/resultsView.js":"cSbZE","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/percentageOfNumber.js":"dW8ue","./views/findTotal.js":"3y1m0","./views/percentageFromTotal.js":"hV1pf"}],"cSbZE":[function(require,module,exports) {
+},{"./views/findTotal.js":"3y1m0","./views/percentageOfNumber.js":"dW8ue","./views/percentageFromTotal.js":"hV1pf","./views/resultsView.js":"cSbZE","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3y1m0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
-class ResultsView extends (0, _viewJsDefault.default) {
-    _parentElement = document.querySelector(".results");
-    _generateMarkup(data) {
-        return `<input type="text" disabled placeholder="Result" value="${data}"/>`;
+class FindTotal extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector(".calculator");
+    addHandlerCalculate(handler) {
+        this._parentElement.addEventListener("click", function(e) {
+            e.preventDefault();
+            const button = e.target.closest("button");
+            if (!button) return;
+            const percentage = +document.getElementById("number").value;
+            const total = +document.getElementById("percentage").value;
+            handler({
+                number1: percentage,
+                number2: total
+            });
+        });
+    }
+    _generateMarkup() {
+        return `
+      <form class="calculation-form" href="#">
+        <div class="form-content">
+          <h4>If</h4>
+          <input type="text" name="" id="number" />
+          <h4>is</h4>
+          <input type="text" name="" id="percentage" />
+          <h4>% of the total. The total is</h4>
+          <button><span>Calculate</span></button>
+        </div>
+      </form>     
+    `;
     }
 }
-exports.default = new ResultsView();
+exports.default = new FindTotal();
 
 },{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5cUXS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -664,25 +688,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"Y4A21":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "state", ()=>state);
-parcelHelpers.export(exports, "updateState", ()=>updateState);
-const state = {
-    results: {
-        percentageOfNumber: 0,
-        quantityKnowingTotal: 0,
-        totalKnowingQuantityPercentage: 0
-    }
-};
-const updateState = function(property, value) {
-    console.log("Updating state, state before update:", JSON.parse(JSON.stringify(state)));
-    state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
-    console.log("State updated, new state", state);
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dW8ue":[function(require,module,exports) {
+},{}],"dW8ue":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
@@ -725,43 +731,6 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
 }
 exports.default = new PercentageOfNumber();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3y1m0":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
-class FindTotal extends (0, _viewJsDefault.default) {
-    _parentElement = document.querySelector(".calculator");
-    addHandlerCalculate(handler) {
-        this._parentElement.addEventListener("click", function(e) {
-            e.preventDefault();
-            const button = e.target.closest("button");
-            if (!button) return;
-            const percentage = +document.getElementById("number").value;
-            const total = +document.getElementById("percentage").value;
-            handler({
-                number1: percentage,
-                number2: total
-            });
-        });
-    }
-    _generateMarkup() {
-        return `
-      <form class="calculation-form" href="#">
-        <div class="form-content">
-          <h4>If</h4>
-          <input type="text" name="" id="number" />
-          <h4>is</h4>
-          <input type="text" name="" id="percentage" />
-          <h4>% of the total. The total is</h4>
-          <button><span>Calculate</span></button>
-        </div>
-      </form>     
-    `;
-    }
-}
-exports.default = new FindTotal();
-
 },{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hV1pf":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -797,6 +766,37 @@ class FindTotal extends (0, _viewJsDefault.default) {
 }
 exports.default = new FindTotal();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cSbZE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class ResultsView extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector(".results");
+    _generateMarkup(data) {
+        return `<input type="text" disabled placeholder="Result" value="${data}"/>`;
+    }
+}
+exports.default = new ResultsView();
+
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+parcelHelpers.export(exports, "updateState", ()=>updateState);
+const state = {
+    results: {
+        percentageOfNumber: 0,
+        quantityKnowingTotal: 0,
+        totalKnowingQuantityPercentage: 0
+    }
+};
+const updateState = function(property, value) {
+    console.log("Updating state, state before update:", JSON.parse(JSON.stringify(state)));
+    state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
+    console.log("State updated, new state", state);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
 
 //# sourceMappingURL=index.e37f48ea.js.map
