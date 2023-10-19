@@ -10,11 +10,6 @@ const renderCalculators = function () {
   percentageFromTotal.render();
 };
 
-const controlResults = function (result) {
-  model.updateState("percentageOfNumber", result);
-  resultsView.render(result);
-};
-
 /**
  * @description Find the percentage of a number
  * @param data Percentage that we want to find of a number and number itself
@@ -24,8 +19,23 @@ const calculatePercentageOfNumber = function (data) {
   controlResults(result);
 };
 
+const calculateFindTotal = function (data) {
+  console.log("find total");
+};
+const calculatePercentageFromTotal = function (data) {
+  console.log("from total");
+};
+
+const controlResults = function (result) {
+  model.updateState("percentageOfNumber", result);
+  resultsView.render(result);
+};
+
 const init = function () {
   renderCalculators();
+
   percentageOfNumber.addHandlerCalculate(calculatePercentageOfNumber);
+  findTotal.addHandlerCalculate(calculateFindTotal);
+  percentageFromTotal.addHandlerCalculate(calculatePercentageFromTotal);
 };
 init();

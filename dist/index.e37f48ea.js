@@ -589,10 +589,6 @@ const renderCalculators = function() {
     (0, _findTotalJsDefault.default).render();
     (0, _percentageFromTotalJsDefault.default).render();
 };
-const controlResults = function(result) {
-    _modelJs.updateState("percentageOfNumber", result);
-    (0, _resultsViewJsDefault.default).render(result);
-};
 /**
  * @description Find the percentage of a number
  * @param data Percentage that we want to find of a number and number itself
@@ -600,61 +596,41 @@ const controlResults = function(result) {
     const result = data.number1 / 100 * data.number2;
     controlResults(result);
 };
+const calculateFindTotal = function(data) {
+    console.log("find total");
+};
+const calculatePercentageFromTotal = function(data) {
+    console.log("from total");
+};
+const controlResults = function(result) {
+    _modelJs.updateState("percentageOfNumber", result);
+    (0, _resultsViewJsDefault.default).render(result);
+};
 const init = function() {
     renderCalculators();
     (0, _percentageOfNumberJsDefault.default).addHandlerCalculate(calculatePercentageOfNumber);
+    (0, _findTotalJsDefault.default).addHandlerCalculate(calculateFindTotal);
+    (0, _percentageFromTotalJsDefault.default).addHandlerCalculate(calculatePercentageFromTotal);
 };
 init();
 
-},{"./views/findTotal.js":"3y1m0","./views/percentageOfNumber.js":"dW8ue","./views/percentageFromTotal.js":"hV1pf","./views/resultsView.js":"cSbZE","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3y1m0":[function(require,module,exports) {
+},{"./model.js":"Y4A21","./views/findTotal.js":"3y1m0","./views/percentageOfNumber.js":"dW8ue","./views/percentageFromTotal.js":"hV1pf","./views/resultsView.js":"cSbZE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
-class FindTotal extends (0, _viewJsDefault.default) {
-    _parentElement = document.querySelector(".calculator");
-    addHandlerCalculate(handler) {
-        this._parentElement.addEventListener("click", function(e) {
-            console.log("findTotal");
-            e.preventDefault();
-            const button = e.target.closest("button");
-            if (!button) return;
-            const percentage = +document.getElementById("number").value;
-            const total = +document.getElementById("percentage").value;
-            handler({
-                number1: percentage,
-                number2: total
-            });
-        });
+parcelHelpers.export(exports, "state", ()=>state);
+parcelHelpers.export(exports, "updateState", ()=>updateState);
+const state = {
+    results: {
+        percentageOfNumber: 0,
+        quantityKnowingTotal: 0,
+        totalKnowingQuantityPercentage: 0
     }
-    _generateMarkup() {
-        return `
-      <form class="calculation-form" href="#" data-type="findTotal">
-        <div class="form-content">
-          <h4>If</h4>
-          <input type="text" name="" id="number" />
-          <h4>is</h4>
-          <input type="text" name="" id="percentage" />
-          <h4>% of the total. The total is</h4>
-          <button><span>Calculate</span></button>
-        </div>
-      </form>
-    `;
-    }
-}
-exports.default = new FindTotal();
-
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5cUXS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class View {
-    _data;
-    render(data) {
-        const markup = this._generateMarkup(data);
-        this._parentElement.insertAdjacentHTML("beforeend", markup);
-    }
-}
-exports.default = View;
+};
+const updateState = function(property, value) {
+    console.log("Updating state, state before update:", JSON.parse(JSON.stringify(state)));
+    state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
+    console.log("State updated, new state", state);
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -686,24 +662,71 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"dW8ue":[function(require,module,exports) {
+},{}],"3y1m0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class FindTotal extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector(".calculator");
+    _calculationType = "findTotal";
+    addHandlerCalculate(handler) {
+        const thisForm = this._parentElement.querySelector(`form[data-type="${this._calculationType}"]`);
+        if (!thisForm) return;
+        thisForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const number = +this.querySelector("#number").value;
+            const percentage = +this.querySelector("#percentage").value;
+            handler({
+                number1: number,
+                number2: percentage
+            });
+        });
+    }
+    _generateMarkup() {
+        return `
+      <form class="calculation-form" href="#" data-type=${this._calculationType}>
+        <div class="form-content">
+          <h4>If</h4>
+          <input type="text" name="" id="number" />
+          <h4>is</h4>
+          <input type="text" name="" id="percentage" />
+          <h4>% of the total. The total is</h4>
+          <button><span>Calculate</span></button>
+        </div>
+      </form>
+    `;
+    }
+}
+exports.default = new FindTotal();
+
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5cUXS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    _data;
+    render(data) {
+        const markup = this._generateMarkup(data);
+        this._parentElement.insertAdjacentHTML("beforeend", markup);
+    }
+}
+exports.default = View;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dW8ue":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class PercentageOfNumber extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
+    _calculationType = "percentageOfNumber";
     addHandlerCalculate(handler) {
-        this._parentElement.addEventListener("click", function(e) {
+        const thisForm = this._parentElement.querySelector(`form[data-type="${this._calculationType}"]`);
+        thisForm.addEventListener("submit", function(e) {
+            console.log(this);
             e.preventDefault();
-            const thisForm = [
-                ...this.querySelectorAll("[data-type]")
-            ].find((form)=>form.getAttribute("data-type") === "percentageOfNumber");
-            console.log("test");
-            const canSendForm = e.target.closest("button") && e.target.closest("form") === thisForm;
-            if (!canSendForm) return;
-            const percentage = +document.getElementById("percentage").value;
-            const total = +document.getElementById("total").value;
+            const percentage = +this.querySelector("#percentage").value;
+            const total = +this.querySelector("#total").value;
             handler({
                 number1: percentage,
                 number2: total
@@ -712,7 +735,7 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
     }
     _generateMarkup() {
         return `
-      <form class="calculation-form" href="#" data-type="percentageOfNumber">
+      <form class="calculation-form" href="#" data-type=${this._calculationType}>
         <div class="form-content">
           <h4>What is</h4>
           <input type="text" id="percentage" />
@@ -734,14 +757,14 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class FindTotal extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
+    _calculationType = "percentageFromTotal";
     addHandlerCalculate(handler) {
-        this._parentElement.addEventListener("click", function(e) {
-            console.log("percentageFromTotal");
+        const thisForm = this._parentElement.querySelector(`form[data-type="${this._calculationType}"]`);
+        if (!thisForm) return;
+        thisForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            const button = e.target.closest("button");
-            if (!button) return;
-            const number = +document.getElementById("number").value;
-            const total = +document.getElementById("total").value;
+            const number = +this.querySelector("#number").value;
+            const total = +this.querySelector("#total").value;
             handler({
                 number1: number,
                 number2: total
@@ -750,7 +773,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
     }
     _generateMarkup() {
         return `
-      <form class="calculation-form" href="#" data-type="percentageFromTotal">
+      <form class="calculation-form" href="#" data-type=${this._calculationType}>
         <div class="form-content">
           <input type="text" name="" id="number" />
           <h4>is what percent of</h4>
@@ -776,24 +799,6 @@ class ResultsView extends (0, _viewJsDefault.default) {
 }
 exports.default = new ResultsView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "state", ()=>state);
-parcelHelpers.export(exports, "updateState", ()=>updateState);
-const state = {
-    results: {
-        percentageOfNumber: 0,
-        quantityKnowingTotal: 0,
-        totalKnowingQuantityPercentage: 0
-    }
-};
-const updateState = function(property, value) {
-    console.log("Updating state, state before update:", JSON.parse(JSON.stringify(state)));
-    state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
-    console.log("State updated, new state", state);
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
 
 //# sourceMappingURL=index.e37f48ea.js.map

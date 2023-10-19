@@ -2,24 +2,26 @@ import View from "./View.js";
 
 class FindTotal extends View {
   _parentElement = document.querySelector(".calculator");
+  _calculationType = "percentageFromTotal";
 
   addHandlerCalculate(handler) {
-    this._parentElement.addEventListener("click", function (e) {
-      console.log("percentageFromTotal");
+    const thisForm = this._parentElement.querySelector(
+      `form[data-type="${this._calculationType}"]`
+    );
+
+    if (!thisForm) return;
+
+    thisForm.addEventListener("submit", function (e) {
       e.preventDefault();
-
-      const button = e.target.closest("button");
-      if (!button) return;
-
-      const number = +document.getElementById("number").value;
-      const total = +document.getElementById("total").value;
+      const number = +this.querySelector("#number").value;
+      const total = +this.querySelector("#total").value;
       handler({ number1: number, number2: total });
     });
   }
 
   _generateMarkup() {
     return `
-      <form class="calculation-form" href="#" data-type="percentageFromTotal">
+      <form class="calculation-form" href="#" data-type=${this._calculationType}>
         <div class="form-content">
           <input type="text" name="" id="number" />
           <h4>is what percent of</h4>
