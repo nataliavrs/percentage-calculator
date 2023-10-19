@@ -5,6 +5,7 @@ class FindTotal extends View {
 
   addHandlerCalculate(handler) {
     this._parentElement.addEventListener("click", function (e) {
+      console.log("percentageFromTotal");
       e.preventDefault();
 
       const button = e.target.closest("button");

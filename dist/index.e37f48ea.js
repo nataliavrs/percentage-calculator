@@ -575,6 +575,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"aenu9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _modelJs = require("./model.js");
 var _findTotalJs = require("./views/findTotal.js");
 var _findTotalJsDefault = parcelHelpers.interopDefault(_findTotalJs);
 var _percentageOfNumberJs = require("./views/percentageOfNumber.js");
@@ -583,11 +584,7 @@ var _percentageFromTotalJs = require("./views/percentageFromTotal.js");
 var _percentageFromTotalJsDefault = parcelHelpers.interopDefault(_percentageFromTotalJs);
 var _resultsViewJs = require("./views/resultsView.js");
 var _resultsViewJsDefault = parcelHelpers.interopDefault(_resultsViewJs);
-var _modelJs = require("./model.js");
-// if (module.hot) {
-//   module.hot.accept();
-// }
-const controlCalculation = function() {
+const renderCalculators = function() {
     (0, _percentageOfNumberJsDefault.default).render();
     (0, _findTotalJsDefault.default).render();
     (0, _percentageFromTotalJsDefault.default).render();
@@ -604,7 +601,7 @@ const controlResults = function(result) {
     controlResults(result);
 };
 const init = function() {
-    controlCalculation();
+    renderCalculators();
     (0, _percentageOfNumberJsDefault.default).addHandlerCalculate(calculatePercentageOfNumber);
 };
 init();
@@ -618,6 +615,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
     addHandlerCalculate(handler) {
         this._parentElement.addEventListener("click", function(e) {
+            console.log("findTotal");
             e.preventDefault();
             const button = e.target.closest("button");
             if (!button) return;
@@ -631,7 +629,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
     }
     _generateMarkup() {
         return `
-      <form class="calculation-form" href="#">
+      <form class="calculation-form" href="#" data-type="findTotal">
         <div class="form-content">
           <h4>If</h4>
           <input type="text" name="" id="number" />
@@ -640,7 +638,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
           <h4>% of the total. The total is</h4>
           <button><span>Calculate</span></button>
         </div>
-      </form>     
+      </form>
     `;
     }
 }
@@ -695,16 +693,14 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class PercentageOfNumber extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
-    // TODO cercando di non far partire tutti i form con il calculate
     addHandlerCalculate(handler) {
-        this._parentElement.addEventListener("click", (e)=>{
+        this._parentElement.addEventListener("click", function(e) {
             e.preventDefault();
-            const currentForm = [
-                this._parentElement.querySelectorAll("[data-type]")
-            ].find((form)=>console.log(form));
-            console.log(currentForm);
-            const isCurrentForm = currentForm.getAttribute("data-type") === "percentageOfNumber";
-            const canSendForm = e.target.closest("button") && isCurrentForm;
+            const thisForm = [
+                ...this.querySelectorAll("[data-type]")
+            ].find((form)=>form.getAttribute("data-type") === "percentageOfNumber");
+            console.log("test");
+            const canSendForm = e.target.closest("button") && e.target.closest("form") === thisForm;
             if (!canSendForm) return;
             const percentage = +document.getElementById("percentage").value;
             const total = +document.getElementById("total").value;
@@ -719,9 +715,9 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
       <form class="calculation-form" href="#" data-type="percentageOfNumber">
         <div class="form-content">
           <h4>What is</h4>
-          <input type="text" name="" id="percentage" />
+          <input type="text" id="percentage" />
           <h4>% of</h4>
-          <input type="text" name="" id="total" />
+          <input type="text" id="total" />
           <h4>?</h4>
           <button><span>Calculate</span></button>
         </div>
@@ -740,6 +736,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
     addHandlerCalculate(handler) {
         this._parentElement.addEventListener("click", function(e) {
+            console.log("percentageFromTotal");
             e.preventDefault();
             const button = e.target.closest("button");
             if (!button) return;

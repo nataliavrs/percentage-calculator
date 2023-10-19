@@ -1,14 +1,10 @@
+import * as model from "./model.js";
 import findTotal from "./views/findTotal.js";
 import percentageOfNumber from "./views/percentageOfNumber.js";
 import percentageFromTotal from "./views/percentageFromTotal.js";
 import resultsView from "./views/resultsView.js";
-import * as model from "./model.js";
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
-const controlCalculation = function () {
+const renderCalculators = function () {
   percentageOfNumber.render();
   findTotal.render();
   percentageFromTotal.render();
@@ -29,7 +25,7 @@ const calculatePercentageOfNumber = function (data) {
 };
 
 const init = function () {
-  controlCalculation();
+  renderCalculators();
   percentageOfNumber.addHandlerCalculate(calculatePercentageOfNumber);
 };
 init();

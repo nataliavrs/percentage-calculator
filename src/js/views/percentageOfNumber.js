@@ -3,19 +3,17 @@ import View from "./View.js";
 class PercentageOfNumber extends View {
   _parentElement = document.querySelector(".calculator");
 
-  // TODO cercando di non far partire tutti i form con il calculate
   addHandlerCalculate(handler) {
-    this._parentElement.addEventListener("click", (e) => {
+    this._parentElement.addEventListener("click", function (e) {
       e.preventDefault();
+      const thisForm = [...this.querySelectorAll("[data-type]")].find(
+        (form) => form.getAttribute("data-type") === "percentageOfNumber"
+      );
 
-      const currentForm = [
-        this._parentElement.querySelectorAll("[data-type]"),
-      ].find((form) => console.log(form));
+      console.log("test");
 
-      console.log(currentForm);
-      const isCurrentForm =
-        currentForm.getAttribute("data-type") === "percentageOfNumber";
-      const canSendForm = e.target.closest("button") && isCurrentForm;
+      const canSendForm =
+        e.target.closest("button") && e.target.closest("form") === thisForm;
       if (!canSendForm) return;
 
       const percentage = +document.getElementById("percentage").value;
@@ -29,9 +27,9 @@ class PercentageOfNumber extends View {
       <form class="calculation-form" href="#" data-type="percentageOfNumber">
         <div class="form-content">
           <h4>What is</h4>
-          <input type="text" name="" id="percentage" />
+          <input type="text" id="percentage" />
           <h4>% of</h4>
-          <input type="text" name="" id="total" />
+          <input type="text" id="total" />
           <h4>?</h4>
           <button><span>Calculate</span></button>
         </div>

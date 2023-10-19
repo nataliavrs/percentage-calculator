@@ -5,6 +5,7 @@ class FindTotal extends View {
 
   addHandlerCalculate(handler) {
     this._parentElement.addEventListener("click", function (e) {
+      console.log("findTotal");
       e.preventDefault();
 
       const button = e.target.closest("button");
@@ -18,7 +19,7 @@ class FindTotal extends View {
 
   _generateMarkup() {
     return `
-      <form class="calculation-form" href="#">
+      <form class="calculation-form" href="#" data-type="findTotal">
         <div class="form-content">
           <h4>If</h4>
           <input type="text" name="" id="number" />
@@ -27,7 +28,7 @@ class FindTotal extends View {
           <h4>% of the total. The total is</h4>
           <button><span>Calculate</span></button>
         </div>
-      </form>     
+      </form>
     `;
   }
 }
