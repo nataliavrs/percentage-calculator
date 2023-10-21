@@ -13,9 +13,9 @@ class FindTotal extends View {
 
     thisForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      const number = +this.querySelector("#number").value;
+      const part = +this.querySelector("#part").value;
       const percentage = +this.querySelector("#percentage").value;
-      handler({ number1: number, number2: percentage });
+      handler({ number1: part, number2: percentage });
     });
   }
 
@@ -24,10 +24,11 @@ class FindTotal extends View {
       <form class="calculation-form" href="#" data-type=${this._calculationType}>
         <div class="form-content">
           <h4>If</h4>
-          <input type="text" name="" id="number" />
+          <input type="text" name="" id="part" />
           <h4>is</h4>
           <input type="text" name="" id="percentage" />
           <h4>% of the total. The total is</h4>
+          <h4>&nbsp;</h4>
           <button><span>Calculate</span></button>
         </div>
       </form>

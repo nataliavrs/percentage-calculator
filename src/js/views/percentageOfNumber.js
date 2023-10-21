@@ -10,7 +10,6 @@ class PercentageOfNumber extends View {
     );
 
     thisForm.addEventListener("submit", function (e) {
-      console.log(this);
       e.preventDefault();
       const percentage = +this.querySelector("#percentage").value;
       const total = +this.querySelector("#total").value;
@@ -27,6 +26,7 @@ class PercentageOfNumber extends View {
           <h4>% of</h4>
           <input type="text" id="total" />
           <h4>?</h4>
+          <h4>&nbsp;</h4>
           <button><span>Calculate</span></button>
         </div>
       </form>     

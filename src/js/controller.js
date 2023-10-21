@@ -1,13 +1,13 @@
 import * as model from "./model.js";
 import findTotal from "./views/findTotal.js";
 import percentageOfNumber from "./views/percentageOfNumber.js";
-import percentageFromTotal from "./views/percentageFromTotal.js";
+import percentageFromTotal from "./views/whatPercent.js";
 import resultsView from "./views/resultsView.js";
 
 const renderCalculators = function () {
   percentageOfNumber.render();
-  findTotal.render();
   percentageFromTotal.render();
+  findTotal.render();
 };
 
 /**
@@ -19,11 +19,12 @@ const calculatePercentageOfNumber = function (data) {
   controlResults(result);
 };
 
-const calculateFindTotal = function (data) {
-  console.log("find total");
-};
 const calculatePercentageFromTotal = function (data) {
-  console.log("from total");
+  console.log("what percent is it:", (data.number1 / data.number2) * 100, "%");
+};
+
+const calculateFindTotal = function (data) {
+  console.log("find total:", (data.number1 * 100) / data.number2);
 };
 
 const controlResults = function (result) {
@@ -35,7 +36,7 @@ const init = function () {
   renderCalculators();
 
   percentageOfNumber.addHandlerCalculate(calculatePercentageOfNumber);
-  findTotal.addHandlerCalculate(calculateFindTotal);
   percentageFromTotal.addHandlerCalculate(calculatePercentageFromTotal);
+  findTotal.addHandlerCalculate(calculateFindTotal);
 };
 init();
