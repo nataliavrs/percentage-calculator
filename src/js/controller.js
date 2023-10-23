@@ -1,42 +1,49 @@
 import * as model from "./model.js";
 import findTotal from "./views/findTotal.js";
 import percentageOfNumber from "./views/percentageOfNumber.js";
-import percentageFromTotal from "./views/whatPercent.js";
+import whatPercentage from "./views/whatPercentage.js";
 import resultsView from "./views/resultsView.js";
 
 const renderCalculators = function () {
   percentageOfNumber.render();
-  percentageFromTotal.render();
+  whatPercentage.render();
   findTotal.render();
 };
 
 /**
- * @description Find the percentage of a number
- * @param data Percentage that we want to find of a number and number itself
+ * @description Calculates the percentage of a number
  */
-const calculatePercentageOfNumber = function (data) {
+const calculatePercentageOfNumber = function (data, calculationType) {
   const result = (data.number1 / 100) * data.number2;
-  controlResults(result);
+  controlResults(result, calculationType);
 };
 
-const calculatePercentageFromTotal = function (data) {
-  console.log("what percent is it:", (data.number1 / data.number2) * 100, "%");
+/**
+ * @description Calculates what percentage a number represents out of total
+ */
+const calculateWhatPercentage = function (data, calculationType) {
+  const result = (data.number1 / data.number2) * 100 + "%";
+  controlResults(result, calculationType);
 };
 
-const calculateFindTotal = function (data) {
-  console.log("find total:", (data.number1 * 100) / data.number2);
+/**
+ * @description Calculates what the total is given a part and a percentage
+ */
+const calculateFindTotal = function (data, calculationType) {
+  const result = (data.number1 * 100) / data.number2;
+  controlResults(result, calculationType);
 };
 
-const controlResults = function (result) {
-  model.updateState("percentageOfNumber", result);
-  resultsView.render(result);
+const controlResults = function (result, calculationType) {
+  model.updateState(calculationType, result);
+  resultsView.render({ result, calculationType });
 };
 
 const init = function () {
   renderCalculators();
 
   percentageOfNumber.addHandlerCalculate(calculatePercentageOfNumber);
-  percentageFromTotal.addHandlerCalculate(calculatePercentageFromTotal);
+  whatPercentage.addHandlerCalculate(calculateWhatPercentage);
   findTotal.addHandlerCalculate(calculateFindTotal);
 };
 init();

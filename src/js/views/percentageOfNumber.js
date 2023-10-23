@@ -6,30 +6,32 @@ class PercentageOfNumber extends View {
 
   addHandlerCalculate(handler) {
     const thisForm = this._parentElement.querySelector(
-      `form[data-type="${this._calculationType}"]`
+      `.calculation-form[data-type^="${this._calculationType}"]`
     );
 
-    thisForm.addEventListener("submit", function (e) {
+    thisForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const percentage = +this.querySelector("#percentage").value;
-      const total = +this.querySelector("#total").value;
-      handler({ number1: percentage, number2: total });
+      const percentage = +thisForm.querySelector("#percentage").value;
+      const total = +thisForm.querySelector("#total").value;
+      handler({ number1: percentage, number2: total }, this._calculationType);
     });
   }
 
   _generateMarkup() {
     return `
-      <form class="calculation-form" href="#" data-type=${this._calculationType}>
-        <div class="form-content">
-          <h4>What is</h4>
-          <input type="text" id="percentage" />
-          <h4>% of</h4>
-          <input type="text" id="total" />
-          <h4>?</h4>
-          <h4>&nbsp;</h4>
-          <button><span>Calculate</span></button>
-        </div>
-      </form>     
+      <div class="calculation-form" data-type=${this._calculationType}>
+        <form href="#">
+          <div class="form-content">
+            <h4>What is</h4>
+            <input type="text" id="percentage" />
+            <h4>% of</h4>
+            <input type="text" id="total" />
+            <h4>?</h4>
+            <h4>&nbsp;</h4>
+            <button><span>Calculate</span></button>
+          </div>
+        </form>     
+      </div>
     `;
   }
 }

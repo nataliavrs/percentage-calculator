@@ -1,8 +1,8 @@
 export const state = {
   results: {
     percentageOfNumber: 0,
-    quantityKnowingTotal: 0,
-    totalKnowingQuantityPercentage: 0,
+    whatPercentage: 0,
+    findTotal: 0,
   },
 };
 
