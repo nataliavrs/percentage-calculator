@@ -2,7 +2,6 @@ import * as model from "./model.js";
 import findTotal from "./views/findTotal.js";
 import percentageOfNumber from "./views/percentageOfNumber.js";
 import whatPercentage from "./views/whatPercentage.js";
-import resultsView from "./views/resultsView.js";
 
 const renderCalculators = function () {
   percentageOfNumber.render();
@@ -36,7 +35,7 @@ const calculateFindTotal = function (data, calculationType) {
 
 const controlResults = function (result, calculationType) {
   model.updateState(calculationType, result);
-  resultsView.render({ result, calculationType });
+  percentageOfNumber.update(result);
 };
 
 const init = function () {

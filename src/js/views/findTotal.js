@@ -31,6 +31,8 @@ class FindTotal extends View {
         <h4>% of the total. The total is</h4>
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
+        <h4>&nbsp;</h4>
+        <input type="text" disabled value="${this._data || ""}"/>
       </div>
     </form>
     </div>

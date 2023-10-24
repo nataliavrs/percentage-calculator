@@ -582,8 +582,6 @@ var _percentageOfNumberJs = require("./views/percentageOfNumber.js");
 var _percentageOfNumberJsDefault = parcelHelpers.interopDefault(_percentageOfNumberJs);
 var _whatPercentageJs = require("./views/whatPercentage.js");
 var _whatPercentageJsDefault = parcelHelpers.interopDefault(_whatPercentageJs);
-var _resultsViewJs = require("./views/resultsView.js");
-var _resultsViewJsDefault = parcelHelpers.interopDefault(_resultsViewJs);
 const renderCalculators = function() {
     (0, _percentageOfNumberJsDefault.default).render();
     (0, _whatPercentageJsDefault.default).render();
@@ -609,10 +607,7 @@ const renderCalculators = function() {
 };
 const controlResults = function(result, calculationType) {
     _modelJs.updateState(calculationType, result);
-    (0, _resultsViewJsDefault.default).render({
-        result,
-        calculationType
-    });
+    (0, _percentageOfNumberJsDefault.default).update(result);
 };
 const init = function() {
     renderCalculators();
@@ -622,7 +617,7 @@ const init = function() {
 };
 init();
 
-},{"./model.js":"Y4A21","./views/findTotal.js":"3y1m0","./views/percentageOfNumber.js":"dW8ue","./views/whatPercentage.js":"ixKGI","./views/resultsView.js":"cSbZE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+},{"./model.js":"Y4A21","./views/findTotal.js":"3y1m0","./views/percentageOfNumber.js":"dW8ue","./views/whatPercentage.js":"ixKGI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -703,6 +698,8 @@ class FindTotal extends (0, _viewJsDefault.default) {
         <h4>% of the total. The total is</h4>
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
+        <h4>&nbsp;</h4>
+        <input type="text" disabled value="${this._data || ""}"/>
       </div>
     </form>
     </div>
@@ -716,10 +713,37 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
     _data;
-    // BUG arg diventa un array per la gestione di vedere results
-    render(...data) {
+    render(data) {
         const markup = this._generateMarkup(data);
         this._parentElement.insertAdjacentHTML("beforeend", markup);
+    }
+    update(data) {
+        // Update the data property in the instance with the new data
+        this._data = data;
+        // Generate new HTML markup based on the updated data
+        const newMarkup = this._generateMarkup();
+        /**
+     * Create a new Document Fragment from the new HTML markup
+     *  createRange(): This is a method of the document object. It creates a new Range object. Ranges are used in the DOM to represent a portion of a document, often used for selecting and manipulating parts of the DOM.
+     *  createContextualFragment(newMarkup): This method is called on the Range object. It takes a string of HTML markup (newMarkup) as its argument and creates a new DOM fragment from it.
+     *  newMarkup is the HTML markup that you've generated based on your updated data.
+     *  createContextualFragment parses this HTML markup and creates a new Document Fragment containing the elements and structure defined in the markup.
+     */ const newDOM = document.createRange().createContextualFragment(newMarkup);
+        console.log("document.createRange()", document.createRange());
+        console.log("newDOM", newDOM);
+        // Convert the elements within the new DOM fragment into an array
+        const newElements = Array.from(newDOM.querySelectorAll("*"));
+        console.log("newElements", newElements);
+        // Convert the elements within the parent element into an array
+        const curElements = Array.from(this._parentElement.querySelectorAll("*"));
+        console.log("curElements", curElements);
+        // Iterate through the elements in both the new DOM fragment and the parent element
+        newElements.forEach((newEl, i)=>{
+            const curEl = curElements[i];
+            // Check if the new element is different from the current element
+            if (!newEl.isEqualNode(curEl)) // Iterate through the attributes of the new element and update the corresponding attributes of the current element
+            Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+        });
     }
 }
 exports.default = View;
@@ -756,8 +780,10 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
+            <h4>&nbsp;</h4>
+            <input type="text" disabled value="${this._data || ""}"/>
           </div>
-        </form>     
+        </form>   
       </div>
     `;
     }
@@ -795,6 +821,8 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
         <input type="text" name="" id="total" />
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
+        <h4>&nbsp;</h4>
+        <input type="text" disabled value="${this._data || ""}"/>
       </div>
     </form>     
     </div>
@@ -802,21 +830,6 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
     }
 }
 exports.default = new WhatPercentage();
-
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cSbZE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
-class ResultsView extends (0, _viewJsDefault.default) {
-    _parentElement;
-    _generateMarkup(data) {
-        console.log(data);
-        this._parentElement = document.querySelector(`.calculation-form[data-type^="${data.calculationType}"]`);
-        return `<input type="text" disabled value="${data.result}"/>`;
-    }
-}
-exports.default = new ResultsView();
 
 },{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire1c97")
 

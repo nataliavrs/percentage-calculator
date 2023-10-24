@@ -8,7 +8,6 @@ class PercentageOfNumber extends View {
     const thisForm = this._parentElement.querySelector(
       `.calculation-form[data-type^="${this._calculationType}"]`
     );
-
     thisForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const percentage = +thisForm.querySelector("#percentage").value;
@@ -29,8 +28,10 @@ class PercentageOfNumber extends View {
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
+            <h4>&nbsp;</h4>
+            <input type="text" disabled value="${this._data || ""}"/>
           </div>
-        </form>     
+        </form>   
       </div>
     `;
   }

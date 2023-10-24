@@ -28,6 +28,8 @@ class WhatPercentage extends View {
         <input type="text" name="" id="total" />
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
+        <h4>&nbsp;</h4>
+        <input type="text" disabled value="${this._data || ""}"/>
       </div>
     </form>     
     </div>
