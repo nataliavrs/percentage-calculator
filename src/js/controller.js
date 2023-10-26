@@ -38,10 +38,19 @@ const controlResults = function (result, calculationType, caller) {
   caller.update(result);
 };
 
+const controlStorage = function () {
+  const storedState = JSON.parse(localStorage.getItem("results"));
+  console.log(storedState);
+  percentageOfNumber.update(storedState.percentageOfNumber);
+  whatPercentage.update(storedState.whatPercentage);
+  findTotal.update(storedState.findTotal);
+};
+
 const init = function () {
   renderCalculators();
   percentageOfNumber.addHandlerCalculate(calculatePercentageOfNumber);
   whatPercentage.addHandlerCalculate(calculateWhatPercentage);
   findTotal.addHandlerCalculate(calculateFindTotal);
+  controlStorage();
 };
 init();

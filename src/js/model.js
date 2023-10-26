@@ -15,4 +15,9 @@ export const updateState = function (property, value) {
     ? (state[property] = value)
     : (state.results[property] = value);
   // console.log("State updated, new state", state);
+  cacheState();
+};
+
+export const cacheState = function () {
+  localStorage.setItem("results", JSON.stringify(state.results));
 };

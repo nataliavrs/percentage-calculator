@@ -609,11 +609,19 @@ const controlResults = function(result, calculationType, caller) {
     _modelJs.updateState(calculationType, result);
     caller.update(result);
 };
+const controlStorage = function() {
+    const storedState = JSON.parse(localStorage.getItem("results"));
+    console.log(storedState);
+    (0, _percentageOfNumberJsDefault.default).update(storedState.percentageOfNumber);
+    (0, _whatPercentageJsDefault.default).update(storedState.whatPercentage);
+    (0, _findTotalJsDefault.default).update(storedState.findTotal);
+};
 const init = function() {
     renderCalculators();
     (0, _percentageOfNumberJsDefault.default).addHandlerCalculate(calculatePercentageOfNumber);
     (0, _whatPercentageJsDefault.default).addHandlerCalculate(calculateWhatPercentage);
     (0, _findTotalJsDefault.default).addHandlerCalculate(calculateFindTotal);
+    controlStorage();
 };
 init();
 
@@ -622,6 +630,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "updateState", ()=>updateState);
+parcelHelpers.export(exports, "cacheState", ()=>cacheState);
 const state = {
     results: {
         percentageOfNumber: 0,
@@ -635,7 +644,11 @@ const updateState = function(property, value) {
     //   JSON.parse(JSON.stringify(state))
     // );
     state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
-// console.log("State updated, new state", state);
+    // console.log("State updated, new state", state);
+    cacheState();
+};
+const cacheState = function() {
+    localStorage.setItem("results", JSON.stringify(state.results));
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
