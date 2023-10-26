@@ -589,25 +589,25 @@ const renderCalculators = function() {
 };
 /**
  * @description Calculates the percentage of a number
- */ const calculatePercentageOfNumber = function(data, calculationType) {
+ */ const calculatePercentageOfNumber = function(data, calculationType, caller) {
     const result = data.number1 / 100 * data.number2;
-    controlResults(result, calculationType);
+    controlResults(result, calculationType, caller);
 };
 /**
  * @description Calculates what percentage a number represents out of total
- */ const calculateWhatPercentage = function(data, calculationType) {
+ */ const calculateWhatPercentage = function(data, calculationType, caller) {
     const result = data.number1 / data.number2 * 100 + "%";
-    controlResults(result, calculationType);
+    controlResults(result, calculationType, caller);
 };
 /**
  * @description Calculates what the total is given a part and a percentage
- */ const calculateFindTotal = function(data, calculationType) {
+ */ const calculateFindTotal = function(data, calculationType, caller) {
     const result = data.number1 * 100 / data.number2;
-    controlResults(result, calculationType);
+    controlResults(result, calculationType, caller);
 };
-const controlResults = function(result, calculationType) {
+const controlResults = function(result, calculationType, caller) {
     _modelJs.updateState(calculationType, result);
-    (0, _percentageOfNumberJsDefault.default).update(result);
+    caller.update(result);
 };
 const init = function() {
     renderCalculators();
@@ -630,9 +630,12 @@ const state = {
     }
 };
 const updateState = function(property, value) {
-    console.log("Updating state, state before update:", JSON.parse(JSON.stringify(state)));
+    // console.log(
+    //   "Updating state, state before update:",
+    //   JSON.parse(JSON.stringify(state))
+    // );
     state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
-    console.log("State updated, new state", state);
+// console.log("State updated, new state", state);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -683,7 +686,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
             handler({
                 number1: part,
                 number2: percentage
-            }, this._calculationType);
+            }, this._calculationType, this);
         });
     }
     _generateMarkup() {
@@ -713,6 +716,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
     _data;
+    test() {
+        console.log("DIO NUBI");
+    }
     render(data) {
         const markup = this._generateMarkup(data);
         this._parentElement.insertAdjacentHTML("beforeend", markup);
@@ -729,14 +735,10 @@ class View {
      *  newMarkup is the HTML markup that you've generated based on your updated data.
      *  createContextualFragment parses this HTML markup and creates a new Document Fragment containing the elements and structure defined in the markup.
      */ const newDOM = document.createRange().createContextualFragment(newMarkup);
-        console.log("document.createRange()", document.createRange());
-        console.log("newDOM", newDOM);
         // Convert the elements within the new DOM fragment into an array
-        const newElements = Array.from(newDOM.querySelectorAll("*"));
-        console.log("newElements", newElements);
+        const newElements = Array.from(newDOM.querySelector(`.calculation-form[data-type="${this._calculationType}"]`).querySelectorAll("*"));
         // Convert the elements within the parent element into an array
-        const curElements = Array.from(this._parentElement.querySelectorAll("*"));
-        console.log("curElements", curElements);
+        const curElements = Array.from(document.querySelector(`.calculation-form[data-type="${this._calculationType}"]`).querySelectorAll("*"));
         // Iterate through the elements in both the new DOM fragment and the parent element
         newElements.forEach((newEl, i)=>{
             const curEl = curElements[i];
@@ -765,7 +767,7 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
             handler({
                 number1: percentage,
                 number2: total
-            }, this._calculationType);
+            }, this._calculationType, this);
         });
     }
     _generateMarkup() {
@@ -808,7 +810,7 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
             handler({
                 number1: part,
                 number2: total
-            }, this._calculationType);
+            }, this._calculationType, this);
         });
     }
     _generateMarkup() {

@@ -12,35 +12,34 @@ const renderCalculators = function () {
 /**
  * @description Calculates the percentage of a number
  */
-const calculatePercentageOfNumber = function (data, calculationType) {
+const calculatePercentageOfNumber = function (data, calculationType, caller) {
   const result = (data.number1 / 100) * data.number2;
-  controlResults(result, calculationType);
+  controlResults(result, calculationType, caller);
 };
 
 /**
  * @description Calculates what percentage a number represents out of total
  */
-const calculateWhatPercentage = function (data, calculationType) {
+const calculateWhatPercentage = function (data, calculationType, caller) {
   const result = (data.number1 / data.number2) * 100 + "%";
-  controlResults(result, calculationType);
+  controlResults(result, calculationType, caller);
 };
 
 /**
  * @description Calculates what the total is given a part and a percentage
  */
-const calculateFindTotal = function (data, calculationType) {
+const calculateFindTotal = function (data, calculationType, caller) {
   const result = (data.number1 * 100) / data.number2;
-  controlResults(result, calculationType);
+  controlResults(result, calculationType, caller);
 };
 
-const controlResults = function (result, calculationType) {
+const controlResults = function (result, calculationType, caller) {
   model.updateState(calculationType, result);
-  percentageOfNumber.update(result);
+  caller.update(result);
 };
 
 const init = function () {
   renderCalculators();
-
   percentageOfNumber.addHandlerCalculate(calculatePercentageOfNumber);
   whatPercentage.addHandlerCalculate(calculateWhatPercentage);
   findTotal.addHandlerCalculate(calculateFindTotal);

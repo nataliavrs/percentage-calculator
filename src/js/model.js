@@ -7,12 +7,12 @@ export const state = {
 };
 
 export const updateState = function (property, value) {
-  console.log(
-    "Updating state, state before update:",
-    JSON.parse(JSON.stringify(state))
-  );
+  // console.log(
+  //   "Updating state, state before update:",
+  //   JSON.parse(JSON.stringify(state))
+  // );
   state.hasOwnProperty(property)
     ? (state[property] = value)
     : (state.results[property] = value);
-  console.log("State updated, new state", state);
+  // console.log("State updated, new state", state);
 };

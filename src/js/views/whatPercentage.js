@@ -14,7 +14,7 @@ class WhatPercentage extends View {
       e.preventDefault();
       const part = +thisForm.querySelector("#part").value;
       const total = +thisForm.querySelector("#total").value;
-      handler({ number1: part, number2: total }, this._calculationType);
+      handler({ number1: part, number2: total }, this._calculationType, this);
     });
   }
 

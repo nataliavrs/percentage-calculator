@@ -15,7 +15,11 @@ class FindTotal extends View {
       e.preventDefault();
       const part = +thisForm.querySelector("#part").value;
       const percentage = +thisForm.querySelector("#percentage").value;
-      handler({ number1: part, number2: percentage }, this._calculationType);
+      handler(
+        { number1: part, number2: percentage },
+        this._calculationType,
+        this
+      );
     });
   }
 

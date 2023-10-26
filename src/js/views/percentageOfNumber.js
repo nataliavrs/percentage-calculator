@@ -12,7 +12,11 @@ class PercentageOfNumber extends View {
       e.preventDefault();
       const percentage = +thisForm.querySelector("#percentage").value;
       const total = +thisForm.querySelector("#total").value;
-      handler({ number1: percentage, number2: total }, this._calculationType);
+      handler(
+        { number1: percentage, number2: total },
+        this._calculationType,
+        this
+      );
     });
   }
 

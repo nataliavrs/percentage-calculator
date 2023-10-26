@@ -1,6 +1,10 @@
 export default class View {
   _data;
 
+  test() {
+    console.log("DIO NUBI");
+  }
+
   render(data) {
     const markup = this._generateMarkup(data);
     this._parentElement.insertAdjacentHTML("beforeend", markup);
@@ -19,14 +23,22 @@ export default class View {
      *  createContextualFragment parses this HTML markup and creates a new Document Fragment containing the elements and structure defined in the markup.
      */
     const newDOM = document.createRange().createContextualFragment(newMarkup);
-    console.log("document.createRange()", document.createRange());
-    console.log("newDOM", newDOM);
     // Convert the elements within the new DOM fragment into an array
-    const newElements = Array.from(newDOM.querySelectorAll("*"));
-    console.log("newElements", newElements);
+    const newElements = Array.from(
+      newDOM
+        .querySelector(
+          `.calculation-form[data-type="${this._calculationType}"]`
+        )
+        .querySelectorAll("*")
+    );
     // Convert the elements within the parent element into an array
-    const curElements = Array.from(this._parentElement.querySelectorAll("*"));
-    console.log("curElements", curElements);
+    const curElements = Array.from(
+      document
+        .querySelector(
+          `.calculation-form[data-type="${this._calculationType}"]`
+        )
+        .querySelectorAll("*")
+    );
     // Iterate through the elements in both the new DOM fragment and the parent element
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i];
