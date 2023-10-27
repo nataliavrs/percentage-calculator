@@ -12,34 +12,54 @@ const renderCalculators = function () {
 /**
  * @description Calculates the percentage of a number
  */
-const calculatePercentageOfNumber = function (data, calculationType, caller) {
-  const result = (data.number1 / 100) * data.number2;
-  controlResults(result, calculationType, caller);
+const calculatePercentageOfNumber = function (
+  { percentage, total },
+  calculationType,
+  caller
+) {
+  const result = (percentage / 100) * total;
+  controlResults(percentage, total, result, calculationType, caller);
 };
 
 /**
  * @description Calculates what percentage a number represents out of total
  */
-const calculateWhatPercentage = function (data, calculationType, caller) {
-  const result = (data.number1 / data.number2) * 100 + "%";
-  controlResults(result, calculationType, caller);
+const calculateWhatPercentage = function (
+  { part, total },
+  calculationType,
+  caller
+) {
+  const result = (part / total) * 100 + "%";
+  controlResults(part, total, result, calculationType, caller);
 };
 
 /**
  * @description Calculates what the total is given a part and a percentage
  */
-const calculateFindTotal = function (data, calculationType, caller) {
-  const result = (data.number1 * 100) / data.number2;
-  controlResults(result, calculationType, caller);
+const calculateFindTotal = function (
+  { part, percentage },
+  calculationType,
+  caller
+) {
+  const result = (part * 100) / percentage;
+  controlResults(part, percentage, result, calculationType, caller);
 };
 
-const controlResults = function (result, calculationType, caller) {
-  model.updateState(calculationType, result);
-  caller.update(result);
+const controlResults = function (num1, num2, result, calculationType, caller) {
+  model.updateState(num1, num2, calculationType, result);
+  if (+model.state.calculations[calculationType].result === result) {
+    caller.update({
+      num1: model.state.calculations[calculationType].num1,
+      num2: model.state.calculations[calculationType].num2,
+      result,
+    });
+  } else {
+    caller.update({ num1: "nubi", num2: "nubi", result });
+  }
 };
 
 const controlStorage = function () {
-  const storedState = JSON.parse(localStorage.getItem("results"));
+  const storedState = JSON.parse(localStorage.getItem("calculations"));
   console.log(storedState);
   percentageOfNumber.update(storedState.percentageOfNumber);
   whatPercentage.update(storedState.whatPercentage);

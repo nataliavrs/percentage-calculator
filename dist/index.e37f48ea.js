@@ -589,28 +589,37 @@ const renderCalculators = function() {
 };
 /**
  * @description Calculates the percentage of a number
- */ const calculatePercentageOfNumber = function(data, calculationType, caller) {
-    const result = data.number1 / 100 * data.number2;
-    controlResults(result, calculationType, caller);
+ */ const calculatePercentageOfNumber = function({ percentage, total }, calculationType, caller) {
+    const result = percentage / 100 * total;
+    controlResults(percentage, total, result, calculationType, caller);
 };
 /**
  * @description Calculates what percentage a number represents out of total
- */ const calculateWhatPercentage = function(data, calculationType, caller) {
-    const result = data.number1 / data.number2 * 100 + "%";
-    controlResults(result, calculationType, caller);
+ */ const calculateWhatPercentage = function({ part, total }, calculationType, caller) {
+    const result = part / total * 100 + "%";
+    controlResults(part, total, result, calculationType, caller);
 };
 /**
  * @description Calculates what the total is given a part and a percentage
- */ const calculateFindTotal = function(data, calculationType, caller) {
-    const result = data.number1 * 100 / data.number2;
-    controlResults(result, calculationType, caller);
+ */ const calculateFindTotal = function({ part, percentage }, calculationType, caller) {
+    const result = part * 100 / percentage;
+    controlResults(part, percentage, result, calculationType, caller);
 };
-const controlResults = function(result, calculationType, caller) {
-    _modelJs.updateState(calculationType, result);
-    caller.update(result);
+const controlResults = function(num1, num2, result, calculationType, caller) {
+    _modelJs.updateState(num1, num2, calculationType, result);
+    if (+_modelJs.state.calculations[calculationType].result === result) caller.update({
+        num1: _modelJs.state.calculations[calculationType].num1,
+        num2: _modelJs.state.calculations[calculationType].num2,
+        result
+    });
+    else caller.update({
+        num1: "nubi",
+        num2: "nubi",
+        result
+    });
 };
 const controlStorage = function() {
-    const storedState = JSON.parse(localStorage.getItem("results"));
+    const storedState = JSON.parse(localStorage.getItem("calculations"));
     console.log(storedState);
     (0, _percentageOfNumberJsDefault.default).update(storedState.percentageOfNumber);
     (0, _whatPercentageJsDefault.default).update(storedState.whatPercentage);
@@ -628,28 +637,54 @@ init();
 },{"./model.js":"Y4A21","./views/findTotal.js":"3y1m0","./views/percentageOfNumber.js":"dW8ue","./views/whatPercentage.js":"ixKGI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "updateState", ()=>updateState);
 parcelHelpers.export(exports, "cacheState", ()=>cacheState);
-const state = {
-    results: {
-        percentageOfNumber: 0,
-        whatPercentage: 0,
-        findTotal: 0
-    }
-};
-const updateState = function(property, value) {
+parcelHelpers.export(exports, "initState", ()=>initState);
+const updateState = function(num1, num2, calculationType, result) {
     // console.log(
     //   "Updating state, state before update:",
     //   JSON.parse(JSON.stringify(state))
     // );
-    state.hasOwnProperty(property) ? state[property] = value : state.results[property] = value;
+    state.calculations[calculationType] = {
+        num1,
+        num2,
+        result
+    };
+    // state.hasOwnProperty(property)
+    //   ? (state[property] = value)
+    //   : (state.results[property] = value);
     // console.log("State updated, new state", state);
     cacheState();
 };
 const cacheState = function() {
-    localStorage.setItem("results", JSON.stringify(state.results));
+    const storedState = localStorage.setItem("calculations", JSON.stringify(state.calculations));
+    // BUG
+    storedState ? this.state = JSON.parse(storedState) : {
+        ...this.state
+    };
 };
+const initState = function() {
+    return {
+        calculations: {
+            percentageOfNumber: {
+                num1: 0,
+                num2: 0,
+                result: 0
+            },
+            whatPercentage: {
+                num1: 0,
+                num2: 0,
+                result: 0
+            },
+            findTotal: {
+                num1: 0,
+                num2: 0,
+                result: 0
+            }
+        }
+    };
+};
+initState();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -697,8 +732,8 @@ class FindTotal extends (0, _viewJsDefault.default) {
             const part = +thisForm.querySelector("#part").value;
             const percentage = +thisForm.querySelector("#percentage").value;
             handler({
-                number1: part,
-                number2: percentage
+                part,
+                percentage
             }, this._calculationType, this);
         });
     }
@@ -708,14 +743,14 @@ class FindTotal extends (0, _viewJsDefault.default) {
     <form href="#">
       <div class="form-content">
         <h4>If</h4>
-        <input type="text" name="" id="part" />
+        <input type="text" name="" id="part" value="${this._data?.num1 || ""}" />
         <h4>is</h4>
-        <input type="text" name="" id="percentage" />
+        <input type="text" name="" id="percentage" value="${this._data?.num2 || ""}" />
         <h4>% of the total. The total is</h4>
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
         <h4>&nbsp;</h4>
-        <input type="text" disabled value="${this._data || ""}"/>
+        <input type="text" disabled value="${this._data?.result || ""}" />
       </div>
     </form>
     </div>
@@ -729,9 +764,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
     _data;
-    test() {
-        console.log("DIO NUBI");
-    }
     render(data) {
         const markup = this._generateMarkup(data);
         this._parentElement.insertAdjacentHTML("beforeend", markup);
@@ -757,7 +789,9 @@ class View {
             const curEl = curElements[i];
             // Check if the new element is different from the current element
             if (!newEl.isEqualNode(curEl)) // Iterate through the attributes of the new element and update the corresponding attributes of the current element
-            Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+            Array.from(newEl.attributes).forEach((attr)=>{
+                curEl.setAttribute(attr.name, attr.value);
+            });
         });
     }
 }
@@ -778,8 +812,8 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
             const percentage = +thisForm.querySelector("#percentage").value;
             const total = +thisForm.querySelector("#total").value;
             handler({
-                number1: percentage,
-                number2: total
+                percentage,
+                total
             }, this._calculationType, this);
         });
     }
@@ -789,14 +823,14 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
         <form href="#">
           <div class="form-content">
             <h4>What is</h4>
-            <input type="text" id="percentage" />
+              <input type="text" id="percentage" value="${this._data?.num1 || ""}" />
             <h4>% of</h4>
-            <input type="text" id="total" />
+            <input type="text" id="total" value="${this._data?.num2 || ""}" />
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
             <h4>&nbsp;</h4>
-            <input type="text" disabled value="${this._data || ""}"/>
+            <input type="text" id="debug" disabled value="${this._data?.result || ""}" />
           </div>
         </form>   
       </div>
@@ -821,8 +855,8 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
             const part = +thisForm.querySelector("#part").value;
             const total = +thisForm.querySelector("#total").value;
             handler({
-                number1: part,
-                number2: total
+                part,
+                total
             }, this._calculationType, this);
         });
     }
@@ -831,13 +865,13 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
     <div class="calculation-form" data-type=${this._calculationType}>
     <form href="#">
       <div class="form-content">
-        <input type="text" name="" id="part" />
+        <input type="text" name="" id="part" value="${this._data?.num1 || ""}" />
         <h4>is what percent of</h4>
-        <input type="text" name="" id="total" />
+        <input type="text" name="" id="total" value="${this._data?.num2 || ""}" />
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
         <h4>&nbsp;</h4>
-        <input type="text" disabled value="${this._data || ""}"/>
+        <input type="text" disabled value="${this._data?.result || ""} "/>
       </div>
     </form>     
     </div>

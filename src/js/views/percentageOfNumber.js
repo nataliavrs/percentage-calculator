@@ -12,11 +12,7 @@ class PercentageOfNumber extends View {
       e.preventDefault();
       const percentage = +thisForm.querySelector("#percentage").value;
       const total = +thisForm.querySelector("#total").value;
-      handler(
-        { number1: percentage, number2: total },
-        this._calculationType,
-        this
-      );
+      handler({ percentage, total }, this._calculationType, this);
     });
   }
 
@@ -26,14 +22,18 @@ class PercentageOfNumber extends View {
         <form href="#">
           <div class="form-content">
             <h4>What is</h4>
-            <input type="text" id="percentage" />
+              <input type="text" id="percentage" value="${
+                this._data?.num1 || ""
+              }" />
             <h4>% of</h4>
-            <input type="text" id="total" />
+            <input type="text" id="total" value="${this._data?.num2 || ""}" />
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
             <h4>&nbsp;</h4>
-            <input type="text" disabled value="${this._data || ""}"/>
+            <input type="text" id="debug" disabled value="${
+              this._data?.result || ""
+            }" />
           </div>
         </form>   
       </div>

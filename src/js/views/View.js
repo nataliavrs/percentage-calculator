@@ -1,10 +1,6 @@
 export default class View {
   _data;
 
-  test() {
-    console.log("DIO NUBI");
-  }
-
   render(data) {
     const markup = this._generateMarkup(data);
     this._parentElement.insertAdjacentHTML("beforeend", markup);
@@ -45,9 +41,9 @@ export default class View {
       // Check if the new element is different from the current element
       if (!newEl.isEqualNode(curEl)) {
         // Iterate through the attributes of the new element and update the corresponding attributes of the current element
-        Array.from(newEl.attributes).forEach((attr) =>
-          curEl.setAttribute(attr.name, attr.value)
-        );
+        Array.from(newEl.attributes).forEach((attr) => {
+          curEl.setAttribute(attr.name, attr.value);
+        });
       }
     });
   }
