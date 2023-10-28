@@ -3,6 +3,7 @@ export default class View {
 
   render(data) {
     const markup = this._generateMarkup(data);
+    this._initValidation ? this._initValidation() : null;
     this._parentElement.insertAdjacentHTML("beforeend", markup);
   }
 
@@ -46,5 +47,16 @@ export default class View {
         });
       }
     });
+  }
+
+  isInputInvalid(value) {
+    // console.log(isNaN(value));
+    // console.log(value >= 9999999999999999n);
+    console.log(value);
+    return isNaN(value) || value >= 9999999999999999n;
+  }
+
+  showErrorMessage() {
+    alert("Invalid");
   }
 }

@@ -24,9 +24,11 @@ class PercentageOfNumber extends View {
             <h4>What is</h4>
               <input type="text" id="percentage" value="${
                 this._data?.num1 ?? ""
-              }" />
+              }" required />
             <h4>% of</h4>
-            <input type="text" id="total" value="${this._data?.num2 ?? ""}" />
+            <input type="text" id="total" value="${
+              this._data?.num2 ?? ""
+            }" required />
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>

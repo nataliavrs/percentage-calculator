@@ -30,10 +30,6 @@ export const initState = function () {
 initState();
 
 export const updateState = function (num1, num2, calculationType, result) {
-  // console.log(
-  //   "Updating state, state before update:",
-  //   JSON.parse(JSON.stringify(state))
-  // );
   state.calculations[calculationType] = {
     num1,
     num2,

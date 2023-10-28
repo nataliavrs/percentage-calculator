@@ -664,10 +664,6 @@ const initState = function() {
 };
 initState();
 const updateState = function(num1, num2, calculationType, result) {
-    // console.log(
-    //   "Updating state, state before update:",
-    //   JSON.parse(JSON.stringify(state))
-    // );
     state.calculations[calculationType] = {
         num1,
         num2,
@@ -759,6 +755,7 @@ class View {
     _data;
     render(data) {
         const markup = this._generateMarkup(data);
+        this._initValidation && this._initValidation();
         this._parentElement.insertAdjacentHTML("beforeend", markup);
     }
     update(data) {
@@ -786,6 +783,15 @@ class View {
                 curEl.setAttribute(attr.name, attr.value);
             });
         });
+    }
+    isInputInvalid(value) {
+        // console.log(isNaN(value));
+        // console.log(value >= 9999999999999999n);
+        console.log(value);
+        return isNaN(value) || value >= 9999999999999999n;
+    }
+    showErrorMessage() {
+        alert("Invalid");
     }
 }
 exports.default = View;
@@ -816,9 +822,9 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
         <form href="#">
           <div class="form-content">
             <h4>What is</h4>
-              <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" />
+              <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required />
             <h4>% of</h4>
-            <input type="text" id="total" value="${this._data?.num2 ?? ""}" />
+            <input type="text" id="total" value="${this._data?.num2 ?? ""}" required />
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
@@ -840,13 +846,40 @@ var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class WhatPercentage extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
     _calculationType = "whatPercentage";
+    _initValidation() {
+        const form = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        const part = +form.querySelector("#part").value;
+        const partInput = form.querySelector("#part");
+        partInput.addEventListener("input", function() {
+            if (isNaN(part)) {
+                console.log("input listener");
+                partInput.setCustomValidity("nubi");
+            } else // Clear the custom validity when the condition is not met
+            partInput.setCustomValidity("");
+        });
+    }
     addHandlerCalculate(handler) {
-        const thisForm = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
-        if (!thisForm) return;
-        thisForm.addEventListener("submit", (e)=>{
+        const form = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        if (!form) return;
+        const part = +form.querySelector("#part").value;
+        const partInput = form.querySelector("#part");
+        const total = +form.querySelector("#total").value;
+        partInput.addEventListener("input", function() {
+            if (isNaN(part)) {
+                console.log("input listener");
+                partInput.setCustomValidity("nubi");
+            } else // Clear the custom validity when the condition is not met
+            partInput.setCustomValidity("");
+        });
+        form.addEventListener("submit", (e)=>{
             e.preventDefault();
-            const part = +thisForm.querySelector("#part").value;
-            const total = +thisForm.querySelector("#total").value;
+            if (!partInput.checkValidity()) {
+                console.log("report validit");
+                partInput.reportValidity();
+            }
+            // if (this.isInputInvalid(part) || this.isInputInvalid(total)) {
+            //   return this.showErrorMessage();
+            // }
             handler({
                 part,
                 total
@@ -862,7 +895,7 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
         <h4>is what percent of</h4>
         <input type="text" name="" id="total" value="${this._data?.num2 ?? ""}" />
         <h4>&nbsp;</h4>
-        <button><span>Calculate</span></button>
+        <button id="calculateBtn"><span>Calculate</span></button>
         <h4>&nbsp;</h4>
         <input type="text" disabled value="${this._data?.result ?? "" ? this._data?.result + "%" : ""} "/>
       </div>
