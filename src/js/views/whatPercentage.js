@@ -24,16 +24,18 @@ class WhatPercentage extends View {
     <form href="#">
       <div class="form-content">
         <input type="text" name="" id="part" value="${
-          this._data?.num1 || ""
+          this._data?.num1 ?? ""
         }" />
         <h4>is what percent of</h4>
         <input type="text" name="" id="total" value="${
-          this._data?.num2 || ""
+          this._data?.num2 ?? ""
         }" />
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
         <h4>&nbsp;</h4>
-        <input type="text" disabled value="${this._data?.result || ""} "/>
+        <input type="text" disabled value="${
+          this._data?.result ?? "" ? this._data?.result + "%" : ""
+        } "/>
       </div>
     </form>     
     </div>

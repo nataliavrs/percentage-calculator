@@ -29,7 +29,7 @@ const calculateWhatPercentage = function (
   calculationType,
   caller
 ) {
-  const result = (part / total) * 100 + "%";
+  const result = (part / total) * 100;
   controlResults(part, total, result, calculationType, caller);
 };
 
@@ -46,24 +46,20 @@ const calculateFindTotal = function (
 };
 
 const controlResults = function (num1, num2, result, calculationType, caller) {
-  model.updateState(num1, num2, calculationType, result);
-  if (+model.state.calculations[calculationType].result === result) {
+  if (model.state.calculations[calculationType].result !== result) {
+    model.updateState(num1, num2, calculationType, result);
     caller.update({
       num1: model.state.calculations[calculationType].num1,
       num2: model.state.calculations[calculationType].num2,
       result,
     });
-  } else {
-    caller.update({ num1: "nubi", num2: "nubi", result });
   }
 };
 
 const controlStorage = function () {
-  const storedState = JSON.parse(localStorage.getItem("calculations"));
-  console.log(storedState);
-  percentageOfNumber.update(storedState.percentageOfNumber);
-  whatPercentage.update(storedState.whatPercentage);
-  findTotal.update(storedState.findTotal);
+  percentageOfNumber.update(model.state.calculations.percentageOfNumber);
+  whatPercentage.update(model.state.calculations.whatPercentage);
+  findTotal.update(model.state.calculations.findTotal);
 };
 
 const init = function () {

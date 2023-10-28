@@ -23,16 +23,16 @@ class PercentageOfNumber extends View {
           <div class="form-content">
             <h4>What is</h4>
               <input type="text" id="percentage" value="${
-                this._data?.num1 || ""
+                this._data?.num1 ?? ""
               }" />
             <h4>% of</h4>
-            <input type="text" id="total" value="${this._data?.num2 || ""}" />
+            <input type="text" id="total" value="${this._data?.num2 ?? ""}" />
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
             <h4>&nbsp;</h4>
             <input type="text" id="debug" disabled value="${
-              this._data?.result || ""
+              this._data?.result ?? ""
             }" />
           </div>
         </form>   

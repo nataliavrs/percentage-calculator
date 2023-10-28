@@ -26,17 +26,17 @@ class FindTotal extends View {
       <div class="form-content">
         <h4>If</h4>
         <input type="text" name="" id="part" value="${
-          this._data?.num1 || ""
+          this._data?.num1 ?? ""
         }" />
         <h4>is</h4>
         <input type="text" name="" id="percentage" value="${
-          this._data?.num2 || ""
+          this._data?.num2 ?? ""
         }" />
         <h4>% of the total. The total is</h4>
         <h4>&nbsp;</h4>
         <button><span>Calculate</span></button>
         <h4>&nbsp;</h4>
-        <input type="text" disabled value="${this._data?.result || ""}" />
+        <input type="text" disabled value="${this._data?.result ?? ""}" />
       </div>
     </form>
     </div>

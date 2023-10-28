@@ -1,3 +1,34 @@
+export let state = {};
+
+export const initState = function () {
+  const storedState = JSON.parse(localStorage.getItem("calculations"));
+
+  const emptyState = {
+    calculations: {
+      percentageOfNumber: {
+        num1: null,
+        num2: null,
+        result: null,
+      },
+      whatPercentage: {
+        num1: null,
+        num2: null,
+        result: null,
+      },
+      findTotal: {
+        num1: null,
+        num2: null,
+        result: null,
+      },
+    },
+  };
+
+  return storedState
+    ? (state = { calculations: storedState })
+    : (state = emptyState);
+};
+initState();
+
 export const updateState = function (num1, num2, calculationType, result) {
   // console.log(
   //   "Updating state, state before update:",
@@ -8,43 +39,12 @@ export const updateState = function (num1, num2, calculationType, result) {
     num2,
     result,
   };
-
-  // state.hasOwnProperty(property)
-  //   ? (state[property] = value)
-  //   : (state.results[property] = value);
-  // console.log("State updated, new state", state);
   cacheState();
 };
 
 export const cacheState = function () {
-  const storedState = localStorage.setItem(
+  return localStorage.setItem(
     "calculations",
     JSON.stringify(state.calculations)
   );
-  // BUG
-  storedState ? (this.state = JSON.parse(storedState)) : { ...this.state };
 };
-
-export const initState = function () {
-  return {
-    calculations: {
-      percentageOfNumber: {
-        num1: 0,
-        num2: 0,
-        result: 0,
-      },
-      whatPercentage: {
-        num1: 0,
-        num2: 0,
-        result: 0,
-      },
-      findTotal: {
-        num1: 0,
-        num2: 0,
-        result: 0,
-      },
-    },
-  };
-};
-
-initState();
