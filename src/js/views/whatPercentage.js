@@ -27,7 +27,7 @@ class WhatPercentage extends View {
   _generateMarkup() {
     return `
     <div class="calculation-form" data-type=${this._calculationType}>
-      <form id="form" href="#">
+      <form>
         <div class="form-content">
           <input type="text" id="part" value="${this._data?.num1 ?? ""}" />
           <h4>is what percent of</h4>

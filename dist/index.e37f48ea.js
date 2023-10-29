@@ -714,34 +714,35 @@ class FindTotal extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
     _calculationType = "findTotal";
     addHandlerCalculate(handler) {
-        const thisForm = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
-        if (!thisForm) return;
-        thisForm.addEventListener("submit", (e)=>{
+        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        if (!formContainer) return;
+        const partInput = formContainer.querySelector("#part");
+        const percentageInput = formContainer.querySelector("#percentage");
+        this.validateInputs(partInput, percentageInput);
+        formContainer.addEventListener("submit", (e)=>{
             e.preventDefault();
-            const part = +thisForm.querySelector("#part").value;
-            const percentage = +thisForm.querySelector("#percentage").value;
             handler({
-                part,
-                percentage
+                part: +partInput.value,
+                percentage: +percentageInput.value
             }, this._calculationType, this);
         });
     }
     _generateMarkup() {
         return `
     <div class="calculation-form" data-type=${this._calculationType}>
-    <form href="#">
-      <div class="form-content">
-        <h4>If</h4>
-        <input type="text" name="" id="part" value="${this._data?.num1 ?? ""}" />
-        <h4>is</h4>
-        <input type="text" name="" id="percentage" value="${this._data?.num2 ?? ""}" />
-        <h4>% of the total. The total is</h4>
-        <h4>&nbsp;</h4>
-        <button><span>Calculate</span></button>
-        <h4>&nbsp;</h4>
-        <input type="text" disabled value="${this._data?.result ?? ""}" />
-      </div>
-    </form>
+      <form>
+        <div class="form-content">
+          <h4>If</h4>
+          <input type="text" id="part" value="${this._data?.num1 ?? ""}" />
+          <h4>is</h4>
+          <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" />
+          <h4>% of the total. The total is</h4>
+          <h4>&nbsp;</h4>
+          <button><span>Calculate</span></button>
+          <h4>&nbsp;</h4>
+          <input type="text" disabled value="${this._data?.result ?? ""}" />
+        </div>
+      </form>
     </div>
     `;
     }
@@ -804,21 +805,23 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
     _calculationType = "percentageOfNumber";
     addHandlerCalculate(handler) {
-        const thisForm = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
-        thisForm.addEventListener("submit", (e)=>{
+        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        if (!formContainer) return;
+        const partInput = formContainer.querySelector("#percentage");
+        const percentageInput = formContainer.querySelector("#total");
+        this.validateInputs(partInput, percentageInput);
+        formContainer.addEventListener("submit", (e)=>{
             e.preventDefault();
-            const percentage = +thisForm.querySelector("#percentage").value;
-            const total = +thisForm.querySelector("#total").value;
             handler({
-                percentage,
-                total
+                percentage: +partInput.value,
+                total: +percentageInput.value
             }, this._calculationType, this);
         });
     }
     _generateMarkup() {
         return `
       <div class="calculation-form" data-type=${this._calculationType}>
-        <form href="#">
+        <form>
           <div class="form-content">
             <h4>What is</h4>
               <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required />
@@ -862,7 +865,7 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
     _generateMarkup() {
         return `
     <div class="calculation-form" data-type=${this._calculationType}>
-      <form id="form" href="#">
+      <form>
         <div class="form-content">
           <input type="text" id="part" value="${this._data?.num1 ?? ""}" />
           <h4>is what percent of</h4>

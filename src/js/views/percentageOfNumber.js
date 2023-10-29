@@ -5,21 +5,29 @@ class PercentageOfNumber extends View {
   _calculationType = "percentageOfNumber";
 
   addHandlerCalculate(handler) {
-    const thisForm = this._parentElement.querySelector(
+    const formContainer = this._parentElement.querySelector(
       `.calculation-form[data-type^="${this._calculationType}"]`
     );
-    thisForm.addEventListener("submit", (e) => {
+    if (!formContainer) return;
+
+    const partInput = formContainer.querySelector("#percentage");
+    const percentageInput = formContainer.querySelector("#total");
+    this.validateInputs(partInput, percentageInput);
+
+    formContainer.addEventListener("submit", (e) => {
       e.preventDefault();
-      const percentage = +thisForm.querySelector("#percentage").value;
-      const total = +thisForm.querySelector("#total").value;
-      handler({ percentage, total }, this._calculationType, this);
+      handler(
+        { percentage: +partInput.value, total: +percentageInput.value },
+        this._calculationType,
+        this
+      );
     });
   }
 
   _generateMarkup() {
     return `
       <div class="calculation-form" data-type=${this._calculationType}>
-        <form href="#">
+        <form>
           <div class="form-content">
             <h4>What is</h4>
               <input type="text" id="percentage" value="${
