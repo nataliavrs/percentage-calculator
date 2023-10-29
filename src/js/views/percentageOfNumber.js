@@ -12,7 +12,7 @@ class PercentageOfNumber extends View {
 
     const partInput = formContainer.querySelector("#percentage");
     const percentageInput = formContainer.querySelector("#total");
-    this.validateInputs(partInput, percentageInput);
+    this.validateOnChange(partInput, percentageInput);
 
     formContainer.addEventListener("submit", (e) => {
       e.preventDefault();

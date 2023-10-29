@@ -12,7 +12,7 @@ class WhatPercentage extends View {
 
     const partInput = formContainer.querySelector("#part");
     const totalInput = formContainer.querySelector("#total");
-    this.validateInputs(partInput, totalInput);
+    this.validateOnChange(partInput, totalInput);
 
     formContainer.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -29,9 +29,13 @@ class WhatPercentage extends View {
     <div class="calculation-form" data-type=${this._calculationType}>
       <form>
         <div class="form-content">
-          <input type="text" id="part" value="${this._data?.num1 ?? ""}" />
+          <input type="text" id="part" value="${
+            this._data?.num1 ?? ""
+          }" required />
           <h4>is what percent of</h4>
-          <input type="text" id="total" value="${this._data?.num2 ?? ""}" />
+          <input type="text" id="total" value="${
+            this._data?.num2 ?? ""
+          }" required />
           <h4>&nbsp;</h4>
           <button id="calculateBtn"><span>Calculate</span></button>
           <h4>&nbsp;</h4>

@@ -718,7 +718,7 @@ class FindTotal extends (0, _viewJsDefault.default) {
         if (!formContainer) return;
         const partInput = formContainer.querySelector("#part");
         const percentageInput = formContainer.querySelector("#percentage");
-        this.validateInputs(partInput, percentageInput);
+        this.validateOnChange(partInput, percentageInput);
         formContainer.addEventListener("submit", (e)=>{
             e.preventDefault();
             handler({
@@ -733,9 +733,9 @@ class FindTotal extends (0, _viewJsDefault.default) {
       <form>
         <div class="form-content">
           <h4>If</h4>
-          <input type="text" id="part" value="${this._data?.num1 ?? ""}" />
+          <input type="text" id="part" value="${this._data?.num1 ?? ""}" required />
           <h4>is</h4>
-          <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" />
+          <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" required />
           <h4>% of the total. The total is</h4>
           <h4>&nbsp;</h4>
           <button><span>Calculate</span></button>
@@ -760,6 +760,7 @@ class View {
         this._parentElement.insertAdjacentHTML("beforeend", markup);
     }
     update(data) {
+        if (!data) return;
         // Update the data property in the instance with the new data
         this._data = data;
         // Generate new HTML markup based on the updated data
@@ -785,7 +786,7 @@ class View {
             });
         });
     }
-    validateInputs(...inputs) {
+    validateOnChange(...inputs) {
         inputs.forEach((input)=>input.addEventListener("input", ()=>{
                 this.isInvalidValue(input.value) ? input.setCustomValidity("Insert a valid value") : input.setCustomValidity("");
             }));
@@ -809,7 +810,7 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
         if (!formContainer) return;
         const partInput = formContainer.querySelector("#percentage");
         const percentageInput = formContainer.querySelector("#total");
-        this.validateInputs(partInput, percentageInput);
+        this.validateOnChange(partInput, percentageInput);
         formContainer.addEventListener("submit", (e)=>{
             e.preventDefault();
             handler({
@@ -853,7 +854,7 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
         if (!formContainer) return;
         const partInput = formContainer.querySelector("#part");
         const totalInput = formContainer.querySelector("#total");
-        this.validateInputs(partInput, totalInput);
+        this.validateOnChange(partInput, totalInput);
         formContainer.addEventListener("submit", (e)=>{
             e.preventDefault();
             handler({
@@ -867,9 +868,9 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
     <div class="calculation-form" data-type=${this._calculationType}>
       <form>
         <div class="form-content">
-          <input type="text" id="part" value="${this._data?.num1 ?? ""}" />
+          <input type="text" id="part" value="${this._data?.num1 ?? ""}" required />
           <h4>is what percent of</h4>
-          <input type="text" id="total" value="${this._data?.num2 ?? ""}" />
+          <input type="text" id="total" value="${this._data?.num2 ?? ""}" required />
           <h4>&nbsp;</h4>
           <button id="calculateBtn"><span>Calculate</span></button>
           <h4>&nbsp;</h4>

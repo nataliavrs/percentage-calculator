@@ -8,6 +8,7 @@ export default class View {
   }
 
   update(data) {
+    if (!data) return;
     // Update the data property in the instance with the new data
     this._data = data;
     // Generate new HTML markup based on the updated data
@@ -49,7 +50,7 @@ export default class View {
     });
   }
 
-  validateInputs(...inputs) {
+  validateOnChange(...inputs) {
     inputs.forEach((input) =>
       input.addEventListener("input", () => {
         this.isInvalidValue(input.value)
