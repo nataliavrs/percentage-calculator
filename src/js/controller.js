@@ -29,7 +29,7 @@ const calculateWhatPercentage = function (
   calculationType,
   caller
 ) {
-  const result = (part / total) * 100;
+  const result = total === 0 ? "Cannot divide by zero" : (part / total) * 100;
   controlResults(part, total, result, calculationType, caller);
 };
 
@@ -41,7 +41,8 @@ const calculateFindTotal = function (
   calculationType,
   caller
 ) {
-  const result = (part * 100) / percentage;
+  const result =
+    percentage === 0 ? "Cannot divide by zero" : (part * 100) / percentage;
   controlResults(part, percentage, result, calculationType, caller);
 };
 

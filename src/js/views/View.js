@@ -49,14 +49,17 @@ export default class View {
     });
   }
 
-  isInputInvalid(value) {
-    // console.log(isNaN(value));
-    // console.log(value >= 9999999999999999n);
-    console.log(value);
-    return isNaN(value) || value >= 9999999999999999n;
+  validateInputs(...inputs) {
+    inputs.forEach((input) =>
+      input.addEventListener("input", () => {
+        this.isInvalidValue(input.value)
+          ? input.setCustomValidity("Insert a valid value")
+          : input.setCustomValidity("");
+      })
+    );
   }
 
-  showErrorMessage() {
-    alert("Invalid");
+  isInvalidValue(value) {
+    return !value || isNaN(+value) || +value >= 9999999999999999n;
   }
 }
