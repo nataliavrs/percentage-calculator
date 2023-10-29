@@ -2,11 +2,11 @@ import View from "./View.js";
 
 class WhatPercentage extends View {
   _parentElement = document.querySelector(".calculator");
-  _calculationType = "whatPercentage";
+  calculationType = "whatPercentage";
 
   addHandlerCalculate(handler) {
     const formContainer = this._parentElement.querySelector(
-      `.calculation-form[data-type^="${this._calculationType}"]`
+      `.calculation-form[data-type^="${this.calculationType}"]`
     );
     if (!formContainer) return;
 
@@ -16,29 +16,23 @@ class WhatPercentage extends View {
 
     formContainer.addEventListener("submit", (e) => {
       e.preventDefault();
-      handler(
-        { part: +partInput.value, total: +totalInput.value },
-        this._calculationType,
-        this
-      );
+      handler({ part: +partInput.value, total: +totalInput.value }, this);
     });
   }
 
   _generateMarkup() {
     return `
-    <div class="calculation-form" data-type=${this._calculationType}>
+    <div class="calculation-form" data-type=${this.calculationType}>
       <form>
         <div class="form-content">
           <input type="text" id="part" value="${
             this._data?.num1 ?? ""
           }" required autocomplete="off" />
-          <h4>is what percent of</h4>
+          <label>is what percent of</label>
           <input type="text" id="total" value="${
             this._data?.num2 ?? ""
           }" required autocomplete="off" />
-          <h4>&nbsp;</h4>
           <button id="calculateBtn"><span>Calculate</span></button>
-          <h4>&nbsp;</h4>
           <input type="text" disabled value="${
             this._data?.result ?? ""
               ? !isNaN(this._data?.result)

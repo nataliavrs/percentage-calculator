@@ -12,41 +12,30 @@ const renderCalculators = function () {
 /**
  * @description Calculates the percentage of a number
  */
-const calculatePercentageOfNumber = function (
-  { percentage, total },
-  calculationType,
-  caller
-) {
+const calculatePercentageOfNumber = function ({ percentage, total }, caller) {
   const result = (percentage / 100) * total;
-  controlResults(percentage, total, result, calculationType, caller);
+  controlResults(percentage, total, result, caller);
 };
 
 /**
  * @description Calculates what percentage a number represents out of total
  */
-const calculateWhatPercentage = function (
-  { part, total },
-  calculationType,
-  caller
-) {
+const calculateWhatPercentage = function ({ part, total }, caller) {
   const result = total === 0 ? "Cannot divide by zero" : (part / total) * 100;
-  controlResults(part, total, result, calculationType, caller);
+  controlResults(part, total, result, caller);
 };
 
 /**
  * @description Calculates what the total is given a part and a percentage
  */
-const calculateFindTotal = function (
-  { part, percentage },
-  calculationType,
-  caller
-) {
+const calculateFindTotal = function ({ part, percentage }, caller) {
   const result =
     percentage === 0 ? "Cannot divide by zero" : (part * 100) / percentage;
-  controlResults(part, percentage, result, calculationType, caller);
+  controlResults(part, percentage, result, caller);
 };
 
-const controlResults = function (num1, num2, result, calculationType, caller) {
+const controlResults = function (num1, num2, result, caller) {
+  console.log(caller);
   if (
     isCalculationDifferent(
       {
@@ -54,13 +43,13 @@ const controlResults = function (num1, num2, result, calculationType, caller) {
         num2,
         result,
       },
-      calculationType
+      caller.calculationType
     )
   ) {
-    model.updateState(num1, num2, calculationType, result);
-    caller.update({
-      num1: model.state.calculations[calculationType].num1,
-      num2: model.state.calculations[calculationType].num2,
+    model.updateState(num1, num2, caller.calculationType, result);
+    caller.updateUI({
+      num1,
+      num2,
       result,
     });
   }
@@ -75,9 +64,9 @@ const isCalculationDifferent = function (calculationObj, calculationType) {
 };
 
 const controlStorage = function () {
-  percentageOfNumber.update(model.state.calculations.percentageOfNumber);
-  whatPercentage.update(model.state.calculations.whatPercentage);
-  findTotal.update(model.state.calculations.findTotal);
+  percentageOfNumber.updateUI(model.state.calculations.percentageOfNumber);
+  whatPercentage.updateUI(model.state.calculations.whatPercentage);
+  findTotal.updateUI(model.state.calculations.findTotal);
 };
 
 const init = function () {

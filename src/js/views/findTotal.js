@@ -2,11 +2,11 @@ import View from "./View.js";
 
 class FindTotal extends View {
   _parentElement = document.querySelector(".calculator");
-  _calculationType = "findTotal";
+  calculationType = "findTotal";
 
   addHandlerCalculate(handler) {
     const formContainer = this._parentElement.querySelector(
-      `.calculation-form[data-type^="${this._calculationType}"]`
+      `.calculation-form[data-type^="${this.calculationType}"]`
     );
     if (!formContainer) return;
 
@@ -18,7 +18,6 @@ class FindTotal extends View {
       e.preventDefault();
       handler(
         { part: +partInput.value, percentage: +percentageInput.value },
-        this._calculationType,
         this
       );
     });
@@ -26,21 +25,19 @@ class FindTotal extends View {
 
   _generateMarkup() {
     return `
-    <div class="calculation-form" data-type=${this._calculationType}>
+    <div class="calculation-form" data-type=${this.calculationType}>
       <form>
         <div class="form-content">
-          <h4>If</h4>
+          <label>If</label>
           <input type="text" id="part" value="${
             this._data?.num1 ?? ""
           }" required autocomplete="off" />
-          <h4>is</h4>
+          <label>is</label>
           <input type="text" id="percentage" value="${
             this._data?.num2 ?? ""
           }" required autocomplete="off" />
-          <h4>% of the total. The total is</h4>
-          <h4>&nbsp;</h4>
+          <label>% of the total. The total is</label>
           <button><span>Calculate</span></button>
-          <h4>&nbsp;</h4>
           <input type="text" disabled value="${this._data?.result ?? ""}" />
         </div>
       </form>

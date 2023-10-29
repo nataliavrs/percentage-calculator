@@ -589,32 +589,33 @@ const renderCalculators = function() {
 };
 /**
  * @description Calculates the percentage of a number
- */ const calculatePercentageOfNumber = function({ percentage, total }, calculationType, caller) {
+ */ const calculatePercentageOfNumber = function({ percentage, total }, caller) {
     const result = percentage / 100 * total;
-    controlResults(percentage, total, result, calculationType, caller);
+    controlResults(percentage, total, result, caller);
 };
 /**
  * @description Calculates what percentage a number represents out of total
- */ const calculateWhatPercentage = function({ part, total }, calculationType, caller) {
+ */ const calculateWhatPercentage = function({ part, total }, caller) {
     const result = total === 0 ? "Cannot divide by zero" : part / total * 100;
-    controlResults(part, total, result, calculationType, caller);
+    controlResults(part, total, result, caller);
 };
 /**
  * @description Calculates what the total is given a part and a percentage
- */ const calculateFindTotal = function({ part, percentage }, calculationType, caller) {
+ */ const calculateFindTotal = function({ part, percentage }, caller) {
     const result = percentage === 0 ? "Cannot divide by zero" : part * 100 / percentage;
-    controlResults(part, percentage, result, calculationType, caller);
+    controlResults(part, percentage, result, caller);
 };
-const controlResults = function(num1, num2, result, calculationType, caller) {
+const controlResults = function(num1, num2, result, caller) {
+    console.log(caller);
     if (isCalculationDifferent({
         num1,
         num2,
         result
-    }, calculationType)) {
-        _modelJs.updateState(num1, num2, calculationType, result);
-        caller.update({
-            num1: _modelJs.state.calculations[calculationType].num1,
-            num2: _modelJs.state.calculations[calculationType].num2,
+    }, caller.calculationType)) {
+        _modelJs.updateState(num1, num2, caller.calculationType, result);
+        caller.updateUI({
+            num1,
+            num2,
             result
         });
     }
@@ -624,9 +625,9 @@ const isCalculationDifferent = function(calculationObj, calculationType) {
     return newCalcKeys.some((key)=>calculationObj[key] !== _modelJs.state.calculations[calculationType][key]);
 };
 const controlStorage = function() {
-    (0, _percentageOfNumberJsDefault.default).update(_modelJs.state.calculations.percentageOfNumber);
-    (0, _whatPercentageJsDefault.default).update(_modelJs.state.calculations.whatPercentage);
-    (0, _findTotalJsDefault.default).update(_modelJs.state.calculations.findTotal);
+    (0, _percentageOfNumberJsDefault.default).updateUI(_modelJs.state.calculations.percentageOfNumber);
+    (0, _whatPercentageJsDefault.default).updateUI(_modelJs.state.calculations.whatPercentage);
+    (0, _findTotalJsDefault.default).updateUI(_modelJs.state.calculations.findTotal);
 };
 const init = function() {
     renderCalculators();
@@ -720,9 +721,9 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class FindTotal extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
-    _calculationType = "findTotal";
+    calculationType = "findTotal";
     addHandlerCalculate(handler) {
-        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this.calculationType}"]`);
         if (!formContainer) return;
         const partInput = formContainer.querySelector("#part");
         const percentageInput = formContainer.querySelector("#percentage");
@@ -732,22 +733,20 @@ class FindTotal extends (0, _viewJsDefault.default) {
             handler({
                 part: +partInput.value,
                 percentage: +percentageInput.value
-            }, this._calculationType, this);
+            }, this);
         });
     }
     _generateMarkup() {
         return `
-    <div class="calculation-form" data-type=${this._calculationType}>
+    <div class="calculation-form" data-type=${this.calculationType}>
       <form>
         <div class="form-content">
-          <h4>If</h4>
+          <label>If</label>
           <input type="text" id="part" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
-          <h4>is</h4>
+          <label>is</label>
           <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
-          <h4>% of the total. The total is</h4>
-          <h4>&nbsp;</h4>
+          <label>% of the total. The total is</label>
           <button><span>Calculate</span></button>
-          <h4>&nbsp;</h4>
           <input type="text" disabled value="${this._data?.result ?? ""}" />
         </div>
       </form>
@@ -767,7 +766,7 @@ class View {
         this._initValidation && this._initValidation();
         this._parentElement.insertAdjacentHTML("beforeend", markup);
     }
-    update(data) {
+    updateUI(data) {
         if (!data) return;
         // Update the data property in the instance with the new data
         this._data = data;
@@ -781,9 +780,9 @@ class View {
      *  createContextualFragment parses this HTML markup and creates a new Document Fragment containing the elements and structure defined in the markup.
      */ const newDOM = document.createRange().createContextualFragment(newMarkup);
         // Convert the elements within the new DOM fragment into an array
-        const newElements = Array.from(newDOM.querySelector(`.calculation-form[data-type="${this._calculationType}"]`).querySelectorAll("*"));
+        const newElements = Array.from(newDOM.querySelector(`.calculation-form[data-type="${this.calculationType}"]`).querySelectorAll("*"));
         // Convert the elements within the parent element into an array
-        const curElements = Array.from(document.querySelector(`.calculation-form[data-type="${this._calculationType}"]`).querySelectorAll("*"));
+        const curElements = Array.from(document.querySelector(`.calculation-form[data-type="${this.calculationType}"]`).querySelectorAll("*"));
         // Iterate through the elements in both the new DOM fragment and the parent element
         newElements.forEach((newEl, i)=>{
             const curEl = curElements[i];
@@ -812,9 +811,9 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class PercentageOfNumber extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
-    _calculationType = "percentageOfNumber";
+    calculationType = "percentageOfNumber";
     addHandlerCalculate(handler) {
-        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this.calculationType}"]`);
         if (!formContainer) return;
         const partInput = formContainer.querySelector("#percentage");
         const percentageInput = formContainer.querySelector("#total");
@@ -824,25 +823,23 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
             handler({
                 percentage: +partInput.value,
                 total: +percentageInput.value
-            }, this._calculationType, this);
+            }, this);
         });
     }
     _generateMarkup() {
         return `
-      <div class="calculation-form" data-type=${this._calculationType}>
+      <div class="calculation-form" data-type=${this.calculationType}>
         <form>
           <div class="form-content">
-            <h4>What is</h4>
+            <label>What is</label>
               <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
-            <h4>% of</h4>
+            <label>% of</label>
             <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
-            <h4>?</h4>
-            <h4>&nbsp;</h4>
+            <label>?</label>
             <button><span>Calculate</span></button>
-            <h4>&nbsp;</h4>
             <input type="text" id="debug" disabled value="${this._data?.result ?? ""}" />
           </div>
-        </form>   
+        </form>
       </div>
     `;
     }
@@ -856,9 +853,9 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class WhatPercentage extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".calculator");
-    _calculationType = "whatPercentage";
+    calculationType = "whatPercentage";
     addHandlerCalculate(handler) {
-        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this._calculationType}"]`);
+        const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this.calculationType}"]`);
         if (!formContainer) return;
         const partInput = formContainer.querySelector("#part");
         const totalInput = formContainer.querySelector("#total");
@@ -868,20 +865,18 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
             handler({
                 part: +partInput.value,
                 total: +totalInput.value
-            }, this._calculationType, this);
+            }, this);
         });
     }
     _generateMarkup() {
         return `
-    <div class="calculation-form" data-type=${this._calculationType}>
+    <div class="calculation-form" data-type=${this.calculationType}>
       <form>
         <div class="form-content">
           <input type="text" id="part" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
-          <h4>is what percent of</h4>
+          <label>is what percent of</label>
           <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
-          <h4>&nbsp;</h4>
           <button id="calculateBtn"><span>Calculate</span></button>
-          <h4>&nbsp;</h4>
           <input type="text" disabled value="${this._data?.result ?? "" ? !isNaN(this._data?.result) ? this._data?.result + "%" : this._data?.result : ""} "/>
         </div>
       </form>     

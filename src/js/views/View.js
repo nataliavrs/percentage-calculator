@@ -7,7 +7,7 @@ export default class View {
     this._parentElement.insertAdjacentHTML("beforeend", markup);
   }
 
-  update(data) {
+  updateUI(data) {
     if (!data) return;
     // Update the data property in the instance with the new data
     this._data = data;
@@ -24,17 +24,13 @@ export default class View {
     // Convert the elements within the new DOM fragment into an array
     const newElements = Array.from(
       newDOM
-        .querySelector(
-          `.calculation-form[data-type="${this._calculationType}"]`
-        )
+        .querySelector(`.calculation-form[data-type="${this.calculationType}"]`)
         .querySelectorAll("*")
     );
     // Convert the elements within the parent element into an array
     const curElements = Array.from(
       document
-        .querySelector(
-          `.calculation-form[data-type="${this._calculationType}"]`
-        )
+        .querySelector(`.calculation-form[data-type="${this.calculationType}"]`)
         .querySelectorAll("*")
     );
     // Iterate through the elements in both the new DOM fragment and the parent element
