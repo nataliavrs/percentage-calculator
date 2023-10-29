@@ -47,7 +47,16 @@ const calculateFindTotal = function (
 };
 
 const controlResults = function (num1, num2, result, calculationType, caller) {
-  if (model.state.calculations[calculationType].result !== result) {
+  if (
+    isCalculationDifferent(
+      {
+        num1,
+        num2,
+        result,
+      },
+      calculationType
+    )
+  ) {
     model.updateState(num1, num2, calculationType, result);
     caller.update({
       num1: model.state.calculations[calculationType].num1,
@@ -55,6 +64,14 @@ const controlResults = function (num1, num2, result, calculationType, caller) {
       result,
     });
   }
+};
+
+const isCalculationDifferent = function (calculationObj, calculationType) {
+  const newCalcKeys = Object.keys(calculationObj);
+  return newCalcKeys.some(
+    (key) =>
+      calculationObj[key] !== model.state.calculations[calculationType][key]
+  );
 };
 
 const controlStorage = function () {

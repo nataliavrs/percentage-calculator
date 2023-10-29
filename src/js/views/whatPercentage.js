@@ -31,11 +31,11 @@ class WhatPercentage extends View {
         <div class="form-content">
           <input type="text" id="part" value="${
             this._data?.num1 ?? ""
-          }" required />
+          }" required autocomplete="off" />
           <h4>is what percent of</h4>
           <input type="text" id="total" value="${
             this._data?.num2 ?? ""
-          }" required />
+          }" required autocomplete="off" />
           <h4>&nbsp;</h4>
           <button id="calculateBtn"><span>Calculate</span></button>
           <h4>&nbsp;</h4>

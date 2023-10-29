@@ -606,7 +606,11 @@ const renderCalculators = function() {
     controlResults(part, percentage, result, calculationType, caller);
 };
 const controlResults = function(num1, num2, result, calculationType, caller) {
-    if (_modelJs.state.calculations[calculationType].result !== result) {
+    if (isCalculationDifferent({
+        num1,
+        num2,
+        result
+    }, calculationType)) {
         _modelJs.updateState(num1, num2, calculationType, result);
         caller.update({
             num1: _modelJs.state.calculations[calculationType].num1,
@@ -614,6 +618,10 @@ const controlResults = function(num1, num2, result, calculationType, caller) {
             result
         });
     }
+};
+const isCalculationDifferent = function(calculationObj, calculationType) {
+    const newCalcKeys = Object.keys(calculationObj);
+    return newCalcKeys.some((key)=>calculationObj[key] !== _modelJs.state.calculations[calculationType][key]);
 };
 const controlStorage = function() {
     (0, _percentageOfNumberJsDefault.default).update(_modelJs.state.calculations.percentageOfNumber);
@@ -733,9 +741,9 @@ class FindTotal extends (0, _viewJsDefault.default) {
       <form>
         <div class="form-content">
           <h4>If</h4>
-          <input type="text" id="part" value="${this._data?.num1 ?? ""}" required />
+          <input type="text" id="part" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
           <h4>is</h4>
-          <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" required />
+          <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
           <h4>% of the total. The total is</h4>
           <h4>&nbsp;</h4>
           <button><span>Calculate</span></button>
@@ -825,9 +833,9 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
         <form>
           <div class="form-content">
             <h4>What is</h4>
-              <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required />
+              <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
             <h4>% of</h4>
-            <input type="text" id="total" value="${this._data?.num2 ?? ""}" required />
+            <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
             <h4>?</h4>
             <h4>&nbsp;</h4>
             <button><span>Calculate</span></button>
@@ -868,9 +876,9 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
     <div class="calculation-form" data-type=${this._calculationType}>
       <form>
         <div class="form-content">
-          <input type="text" id="part" value="${this._data?.num1 ?? ""}" required />
+          <input type="text" id="part" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
           <h4>is what percent of</h4>
-          <input type="text" id="total" value="${this._data?.num2 ?? ""}" required />
+          <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
           <h4>&nbsp;</h4>
           <button id="calculateBtn"><span>Calculate</span></button>
           <h4>&nbsp;</h4>
