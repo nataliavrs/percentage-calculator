@@ -1,12 +1,9 @@
-$color-background-main: #dbdad9;
-$color-background-secondary: #ee75e4;
-$border-radius: 5rem;
+$color-background-secondary: #f48fb1;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 1.05rem;
 }
 
 body {
@@ -16,16 +13,15 @@ body {
 .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   height: 100vh;
+  padding: 2rem;
+  text-align: center;
 }
 
 .calculators {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  width: 65%;
-  height: 100%;
+  font-size: 1.1rem;
 }
 
 .calculation-form {
@@ -37,30 +33,37 @@ body {
     to(#f9f9f9)
   );
   border-radius: 0.2rem;
-  margin: 1rem;
+  margin: 1rem 0 1rem 0;
   border: 0.01rem solid #e9e9e9;
-  margin: 0.625rem 0;
-  padding: 0.625rem 1.25rem;
+  padding: 0.6rem;
 }
 
 form {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .inputs {
-  width: 65%;
-  margin: 0.25rem;
+  margin: 0.1rem;
 }
 
 input {
   width: 100px;
   margin: 0.25rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  border: 0.01rem solid #e9e9e9;
 }
 
 button {
   background-color: $color-background-secondary;
+  font-size: 1rem;
+  border: none;
   margin: 0.25rem;
-  border-radius: 0.2rem;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
   span {
     color: white;
   }
@@ -68,4 +71,10 @@ button {
 
 .results {
   margin: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  button {
+    width: 100px;
+  }
 }
