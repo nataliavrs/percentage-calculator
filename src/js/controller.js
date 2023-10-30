@@ -35,7 +35,6 @@ const calculateFindTotal = function ({ part, percentage }, caller) {
 };
 
 const controlResults = function (num1, num2, result, caller) {
-  console.log(caller);
   if (
     isCalculationDifferent(
       {

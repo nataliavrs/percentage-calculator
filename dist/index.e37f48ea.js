@@ -606,7 +606,6 @@ const renderCalculators = function() {
     controlResults(part, percentage, result, caller);
 };
 const controlResults = function(num1, num2, result, caller) {
-    console.log(caller);
     if (isCalculationDifferent({
         num1,
         num2,
@@ -720,7 +719,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class FindTotal extends (0, _viewJsDefault.default) {
-    _parentElement = document.querySelector(".calculator");
+    _parentElement = document.querySelector(".calculators");
     calculationType = "findTotal";
     addHandlerCalculate(handler) {
         const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this.calculationType}"]`);
@@ -738,16 +737,19 @@ class FindTotal extends (0, _viewJsDefault.default) {
     }
     _generateMarkup() {
         return `
-    <div class="calculation-form" data-type=${this.calculationType}>
+    <div class="calculation-form" data-type="${this.calculationType}">
       <form>
-        <div class="form-content">
+        <div class="inputs">
           <label>If</label>
           <input type="text" id="part" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
           <label>is</label>
           <input type="text" id="percentage" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
-          <label>% of the total. The total is</label>
+          <label>% of the total. The total is:</label>
+        </div>
+
+        <div class="results">
           <button><span>Calculate</span></button>
-          <input type="text" disabled value="${this._data?.result ?? ""}" />
+          <input type="text" readonly value="${this._data?.result ?? ""}" />          
         </div>
       </form>
     </div>
@@ -810,7 +812,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class PercentageOfNumber extends (0, _viewJsDefault.default) {
-    _parentElement = document.querySelector(".calculator");
+    _parentElement = document.querySelector(".calculators");
     calculationType = "percentageOfNumber";
     addHandlerCalculate(handler) {
         const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this.calculationType}"]`);
@@ -828,19 +830,24 @@ class PercentageOfNumber extends (0, _viewJsDefault.default) {
     }
     _generateMarkup() {
         return `
-      <div class="calculation-form" data-type=${this.calculationType}>
-        <form>
-          <div class="form-content">
-            <label>What is</label>
-              <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
-            <label>% of</label>
-            <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
-            <label>?</label>
-            <button><span>Calculate</span></button>
-            <input type="text" id="debug" disabled value="${this._data?.result ?? ""}" />
-          </div>
-        </form>
-      </div>
+    <div class="calculation-form" data-type=${this.calculationType}>
+      <form>
+
+        <div class="inputs">
+          <label>What is</label>
+          <input type="text" id="percentage" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
+          <label>% of</label>
+          <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
+          <label>?</label>
+        </div>
+
+        <div class="results">
+          <button><span>Calculate</span></button>
+          <input type="text" readonly value="${this._data?.result ?? ""}" />
+        </div>
+
+      </form>
+    </div>
     `;
     }
 }
@@ -852,7 +859,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class WhatPercentage extends (0, _viewJsDefault.default) {
-    _parentElement = document.querySelector(".calculator");
+    _parentElement = document.querySelector(".calculators");
     calculationType = "whatPercentage";
     addHandlerCalculate(handler) {
         const formContainer = this._parentElement.querySelector(`.calculation-form[data-type^="${this.calculationType}"]`);
@@ -872,14 +879,20 @@ class WhatPercentage extends (0, _viewJsDefault.default) {
         return `
     <div class="calculation-form" data-type=${this.calculationType}>
       <form>
-        <div class="form-content">
+
+        <div class="inputs">
           <input type="text" id="part" value="${this._data?.num1 ?? ""}" required autocomplete="off" />
           <label>is what percent of</label>
           <input type="text" id="total" value="${this._data?.num2 ?? ""}" required autocomplete="off" />
-          <button id="calculateBtn"><span>Calculate</span></button>
-          <input type="text" disabled value="${this._data?.result ?? "" ? !isNaN(this._data?.result) ? this._data?.result + "%" : this._data?.result : ""} "/>
         </div>
-      </form>     
+
+        <div class="results">          
+          <button id="calculateBtn"><span>Calculate</span></button>
+          <input type="text" readonly value="${this._data?.result ?? "" ? !isNaN(this._data?.result) ? this._data?.result + "%" : this._data?.result : ""} "/>
+        </div>
+
+      </form>    
+
     </div>
     `;
     }

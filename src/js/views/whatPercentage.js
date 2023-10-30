@@ -1,7 +1,7 @@
 import View from "./View.js";
 
 class WhatPercentage extends View {
-  _parentElement = document.querySelector(".calculator");
+  _parentElement = document.querySelector(".calculators");
   calculationType = "whatPercentage";
 
   addHandlerCalculate(handler) {
@@ -24,7 +24,8 @@ class WhatPercentage extends View {
     return `
     <div class="calculation-form" data-type=${this.calculationType}>
       <form>
-        <div class="form-content">
+
+        <div class="inputs">
           <input type="text" id="part" value="${
             this._data?.num1 ?? ""
           }" required autocomplete="off" />
@@ -32,8 +33,11 @@ class WhatPercentage extends View {
           <input type="text" id="total" value="${
             this._data?.num2 ?? ""
           }" required autocomplete="off" />
+        </div>
+
+        <div class="results">          
           <button id="calculateBtn"><span>Calculate</span></button>
-          <input type="text" disabled value="${
+          <input type="text" readonly value="${
             this._data?.result ?? ""
               ? !isNaN(this._data?.result)
                 ? this._data?.result + "%"
@@ -41,7 +45,9 @@ class WhatPercentage extends View {
               : ""
           } "/>
         </div>
-      </form>     
+
+      </form>    
+
     </div>
     `;
   }

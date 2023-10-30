@@ -6,6 +6,7 @@ $border-radius: 5rem;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 1.05rem;
 }
 
 body {
@@ -14,46 +15,57 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
-  padding: 1rem;
 }
 
-.calculator {
-  background: $color-background-main;
-  border-radius: 0.5rem;
-  .calculation-form {
-    display: flex;
-    justify-content: center;
-    .form-content {
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      h4 {
-        padding: 0.2rem;
-      }
-    }
-  }
+.calculators {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 65%;
+  height: 100%;
+}
+
+.calculation-form {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#e6e6e6),
+    to(#f9f9f9)
+  );
+  border-radius: 0.2rem;
+  margin: 1rem;
+  border: 0.01rem solid #e9e9e9;
+  margin: 0.625rem 0;
+  padding: 0.625rem 1.25rem;
+}
+
+form {
+  display: flex;
+}
+
+.inputs {
+  width: 65%;
+  margin: 0.25rem;
+}
+
+input {
+  width: 100px;
+  margin: 0.25rem;
 }
 
 button {
   background-color: $color-background-secondary;
+  margin: 0.25rem;
   border-radius: 0.2rem;
-  padding: 0.2rem;
   span {
     color: white;
-    font-weight: bold;
   }
 }
 
 .results {
-  display: flex;
-  align-items: center;
-  background-color: $color-background-secondary;
-  border-radius: 0 0.5rem 0.5rem 0;
-  margin: 0;
-  input {
-    height: 50%;
-  }
+  margin: 0.25rem;
 }
