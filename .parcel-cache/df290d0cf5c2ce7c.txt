@@ -1,4 +1,4 @@
-5892
+5894
 125C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\htmlnano\docs\versioned_docs\version-2.0.0133432346559152443 1
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\posthtml\node_modules\posthtml-parser133432346483210561 1
 111C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-select\lib\sort.d.ts.map133432346547963170 0
@@ -10,9 +10,9 @@
 100C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\src\js\views\whatPercentage.js133431455611610709 0
 122C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_class_private_field_set133432346628131433 1
 146C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\fixtures\invalid-source-not-file\package.json133432346620497217 0
-91C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\get-port133432346470263207 1
+91C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\get-port133432346473963242 1
 112C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lightningcss\node\ast.js.flow133432346478616821 0
-90C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\yallist133432346470009075 1
+90C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\yallist133432346473765047 1
 80C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\.gitignore133407552160292054 0
 133C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-js\src\helpers\worker\js-loader.js133432346530035910 0
 138C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_class_check_private_static_access.cjs133432346512525329 0
@@ -25,7 +25,7 @@
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\svgo\plugins\removeComments.js133432346537676267 0
 105C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\parent-module\index.js133432346462167661 0
 107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\node-addon-api\nothing.c133432346457503249 0
-74C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist133432349013738567 1
+74C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist133432384586813554 1
 126C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\cjs\syntax\node\MediaCondition.cjs133432346571947163 0
 107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\node-addon-api\README.md133432346516266203 0
 125C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\cryptography.js133432346602117647 0
@@ -39,7 +39,7 @@
 91C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\entities133432346516036195 1
 134C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\native-filesystem-api.js133432346707760057 0
 103C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\tslib\tslib.es6.html133432346458833183 0
-82C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\src\main.css133432227485530962 0
+82C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\src\main.css133432384234928383 0
 126C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\fixtures\parcel\yarn.lock133432346627721769 0
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\netinfo.js133432346710269185 0
 87C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\package-lock.json133432160902210280 0
@@ -63,11 +63,11 @@
 133C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\cjs\generator\index.cjs133432346547614926 0
 95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\src\js\views\findTotal.js133431456535779483 0
 128C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\async-functions.js133432346537192283 0
-79C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\README.md133432348609027564 0
+79C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\README.md133432352498006964 0
 106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\posthtml-parser\license133432346458922377 0
 73C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\src133432345093303008 1
 102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\is-json\.travis.yml133432346482912598 0
-95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\import-fresh133432346470223151 1
+95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\import-fresh133432346473913053 1
 77C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\src\img133431641079841523 1
 126C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\server-timing.js133432346723140723 0
 104C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\is-arrayish\README.md133432346466643885 0
@@ -119,7 +119,7 @@
 95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite133432346784502645 1
 158C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\cleanupEnableBackground.js133432346498912696 0
 106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\import-fresh\index.d.ts133432346475589694 0
-89C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\stable133432346470283164 1
+89C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\stable133432346474301697 1
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\js-yaml\lib\schema\failsafe.js133432346494855782 0
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_read_only_error.cjs133432346558657424 0
 109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\picocolors\picocolors.d.ts133432346482723950 0
@@ -250,7 +250,7 @@
 116C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\electron-to-chromium\CHANGELOG.md133432346506497256 0
 129C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_class_private_method_get.cjs133432346529486490 0
 138C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\cjs\syntax\node\Brackets.cjs133432346500104561 0
-107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\abortcontroller-polyfill133432346505217658 1
+107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\abortcontroller-polyfill133432346506557272 1
 114C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\utils\src\objectHash.js133432346547246745 0
 140C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\package.json133432346602584466 0
 127C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\mdn-data\css\at-rules.json133432346486761113 0
@@ -267,14 +267,14 @@
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\type-fest\source\asyncify.d.ts133432346482396706 0
 108C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\htmlparser2\lib\Parser.js133432346473333865 0
 129C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\cjs\lexer\Lexer.cjs133432346559073638 0
-92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\callsites133432346470348556 1
+92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\callsites133432346474161504 1
 99C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\has-flag\license133432346471159142 0
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\semver\functions\prerelease.js133432346534975371 0
 88C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chalk133432346487822152 1
 111C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\source-map\lib\base64-vlq.js133432346485786772 0
 149C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\removeUnusedNS.js133432346549512342 0
 121C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\term-size\vendor\windows\term-size.exe133432346483766146 0
-101C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event133432346475769689 1
+101C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event133432346487342705 1
 156C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\moveElemsAttrsToGroup.js133432346535498866 0
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\cjs\syntax133432346551175925 1
 135C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-select\node_modules\domutils\lib\querying.js.map133432346538834795 0
@@ -283,7 +283,7 @@
 132C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-select\node_modules\entities\lib\index.js.map133432346545059864 0
 106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\js-yaml\lib\type\map.js133432346517575701 0
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\utility-types\dist\index.js133432346472160673 0
-96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\color-convert133432346483062550 1
+96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\color-convert133432346486888950 1
 109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\ordered-binary\.nyc_output133432346492447543 1
 123C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_class_private_method_set133432346629164300 1
 93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\color-name133432346470318523 1
@@ -429,7 +429,7 @@
 129C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_class_private_method_set.cjs133432346531512372 0
 126C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_initializer_define_property133432346636737795 1
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\utils\test\sourcemap.test.js133432346566160532 0
-97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\node-addon-api133432346513658526 1
+97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\node-addon-api133432346515762405 1
 115C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\esm\_ts_decorate.js133432346607197843 0
 102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\cjs\syntax.cjs133432346536088578 0
 132C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\module.c133432346549374960 0
@@ -491,7 +491,7 @@
 124C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\esm\_class_name_tdz_error.js133432346593305966 0
 99C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\tslib\tslib.d.ts133432346503612275 0
 102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\path-type\readme.md133432346478403390 0
-93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\picocolors133432346481307801 1
+93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\picocolors133432346485638938 1
 115C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\msgpackr\dist\unpack-no-eval.cjs133432346488785811 0
 92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\picomatch133432346495284056 1
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\fetch.js133432346652686519 0
@@ -525,7 +525,7 @@
 141C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\lib\syntax\node\MediaFeature.js133432346620537198 0
 93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\dotenv\lib133432346490348012 1
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\htmlparser2\lib\Parser.d.ts133432346509047098 0
-102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\regenerator-runtime133432346470898761 1
+102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\regenerator-runtime133432346475481401 1
 123C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\css-resize.js133432346629045511 0
 101C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\lexer133432346638033959 1
 102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\parse-json\index.js133432346462137429 0
@@ -567,10 +567,10 @@
 143C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\cjs\syntax\node\ClassSelector.cjs133432346507377030 0
 134C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-select\node_modules\domutils\lib\helpers.js.map133432346526987228 0
 132C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_possible_constructor_return.cjs133432346555052693 0
-89C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\srcset133432346470019101 1
+89C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\srcset133432346473775065 1
 97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\to-regex-range133432346470019101 1
-88C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\tslib133432346504929577 1
-92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\type-fest133432346490292606 1
+88C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\tslib133432346506176137 1
+92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\type-fest133432346509846484 1
 104C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\js-yaml\lib\dumper.js133432346491870689 0
 157C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\svgo\lib\svgo\css-style-declaration.js133432346527195640 0
 154C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\msgpackr-extract\node_modules\.bin\node-gyp-build-optional-packages.cmd133432346799580266 0
@@ -583,7 +583,7 @@
 105C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\update-browserslist-db133432346488825792 1
 127C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_sliced_to_array\package.json133432346641653556 0
 165C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\definition-syntax\generate.js133432346545850964 0
-96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\utility-types133432346505729251 1
+96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\utility-types133432346506904242 1
 116C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\htmlnano\lib\modules\minifyCss.js133432346510918829 0
 105C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\picomatch\lib\parse.js133432346474261668 0
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\node_modules\msgpackr\struct.js133432346513212141 0
@@ -678,7 +678,7 @@
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\type-fest\source\basic.d.ts133432346488875813 0
 117C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\xxhash-wasm\cjs\xxhash-wasm.js.map133432346482902593 0
 112C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\type-fest\source\mutable.d.ts133432346519478375 0
-102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\weak-lru-cache\dist133432346431252927 1
+102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\weak-lru-cache\dist133432346458843196 1
 149C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-select\node_modules\entities\lib\generated\decode-data-html.js133432346488715860 0
 106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\weak-lru-cache\index.js133432346468606691 0
 148C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules\css-select\lib\index.d.ts133432346533391866 0
@@ -1039,7 +1039,7 @@
 102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\term-size\readme.md133432346493251371 0
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\dataset.js133432346639588933 0
 124C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\src\_non_iterable_spread.mjs133432346665267870 0
-99C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\term-size\vendor133432346461369603 1
+99C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\term-size\vendor133432346478453413 1
 124C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_to_consumable_array.cjs133432346569050159 0
 112C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\domutils\lib\helpers.d.ts.map133432346501482865 0
 142C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_class_private_field_loose_base\package.json133432346627620351 0
@@ -1836,7 +1836,7 @@
 170C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\node\PseudoClassSelector.js133432346588105762 0
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\node-addon-api\package-support.json133432346511437280 0
 114C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions\ZW.js133432346784452618 0
-107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\utils\test\input133432346459667112 1
+107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\utils\test\input133432346544849873 1
 130C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\tokenizer\char-code-definitions.js133432346603656408 0
 139C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_initializer_define_property\package.json133432346636757748 0
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\node-addon-api\package.json133432346512715320 0
@@ -2041,7 +2041,7 @@
 103C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\src\lmdb-js.cpp133432346575428318 0
 102C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\src\writer.cpp133432346583262473 0
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_async_iterator133432346617137237 1
-115C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\node_modules\node-addon-api133432346513839232 1
+115C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\node_modules\node-addon-api133432346515877821 1
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\cjs\syntax\pseudo\index.cjs133432346559526495 0
 141C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\intro.doc133432346584964160 0
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions\alt-eu.js133432346513528610 0
@@ -2096,7 +2096,7 @@
 117C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\abortcontroller-polyfill\README.md133432346506894234 0
 123C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\cjs\tokenizer133432346598516061 1
 106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\lib\replace\atrule133432346572506991 1
-113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\dependencies\lmdb-data-v1133432346457553241 1
+113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\dependencies\lmdb-data-v1133432346459032406 1
 142C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\mdb_dump.1133432346516895277 0
 137C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\utils133432346575132313 1
 140C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\dom-serializer\node_modules\entities\lib\maps\decode.json133432346486287939 0
@@ -2203,7 +2203,7 @@
 108C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lines-and-columns\LICENSE133432346459002380 0
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lines-and-columns\README.md133432346472822942 0
 117C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lines-and-columns\build\index.d.ts133432346478785229 0
-118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules133432346343329115 1
+118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules133432346796851205 1
 129C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\css-tree\lib\syntax\function133432346636521909 1
 111C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lightningcss\node\index.d.ts133432346512625367 0
 114C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\lightningcss\node\index.js.flow133432346485014696 0
@@ -2419,7 +2419,7 @@
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\htmlnano\lib\modules\custom.js133432346491840654 0
 133C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\htmlnano\lib\modules\deduplicateAttributeValues.js133432346493384235 0
 109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\csso\node_modules\mdn-data133432346533153034 1
-97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.af20ad6e.css.map133432348843511807 0
+97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.af20ad6e.css.map133432354331847872 0
 135C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\css-anchor-positioning.js133432346602396212 0
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\tokenizer\TokenStream.js133432346637354981 0
 138C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\common133432346600106547 1
@@ -3195,7 +3195,7 @@
 117C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\syntax\node\Number.js133432346628985521 0
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\syntax\node\Operator.js133432346629214274 0
 122C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\syntax\node\Parentheses.js133432346630445733 0
-100C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test133432346607127860 1
+100C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test133432346610687221 1
 137C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\mdn-text-decoration-line.js133432346702892898 0
 116C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\syntax\node\Ratio.js133432346634651843 0
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\css-tree\lib\syntax\node\Selector.js133432346635671865 0
@@ -3698,7 +3698,7 @@
 93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\types133432346493404311 1
 144C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\replace\index.js133432346536588049 0
 98C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\clone\clone.iml133432346483746207 0
-106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event\dist133432346466949862 1
+106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event\dist133432346483110408 1
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event\LICENSE.txt133432346488587021 0
 114C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event\package.json133432346463189228 0
 111C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\chrome-trace-event\README.md133432346478556811 0
@@ -3735,7 +3735,7 @@
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\agents.js133432346503876723 0
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\browserVersions.js133432346570687930 0
 124C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\packager-html\lib\HTMLPackager.js133432346463555385 0
-109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features133432346783729603 1
+109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features133432346784402608 1
 131C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\orientation-sensor.js133432346713564125 0
 123C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\features\webworkers.js133432346770988515 0
 108C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions133432346784442613 1
@@ -3752,7 +3752,7 @@
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions\alt-af.js133432346510075031 0
 130C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\esm\_object_destructuring_empty.js133432346603855043 0
 119C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\_\_class_name_tdz_error133432346623050606 1
-93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.af20ad6e.css133432348843002376 0
+93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.af20ad6e.css133432354331792850 0
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions\alt-an.js133432346511126181 0
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions\alt-na.js133432346515547325 0
 118C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\caniuse-lite\data\regions\alt-oc.js133432346516810867 0
@@ -4440,7 +4440,7 @@
 106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@trysound\sax\README.md133432346476330851 0
 107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@trysound\sax\lib\sax.js133432346466065945 0
 92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\core133432346526294203 1
-95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\counter133432346461503284 1
+95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\counter133432346466683879 1
 101C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\types\LICENSE133432346459657096 0
 103C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\types\README.md133432346487126589 0
 107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\types\tsconfig.json133432346472932823 0
@@ -4648,6 +4648,7 @@
 131C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_apply_decorated_descriptor.cjs133432346463296723 0
 124C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_array_like_to_array.cjs133432346473240400 0
 124C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_array_without_holes.cjs133432346485024728 0
+93C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.97fc45f8.css133432384586712288 0
 121C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_array_with_holes.cjs133432346479690381 0
 126C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_await_async_generator.cjs133432346500919721 0
 131C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@swc\helpers\cjs\_class_apply_descriptor_set.cjs133432346509201945 0
@@ -4732,11 +4733,11 @@
 107C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\transformer-html133432346492059063 1
 137C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@msgpackr-extract\msgpackr-extract-win32-x64\README.md133432346466442443 0
 108C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\transformer-image133432346491225085 1
-101C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\utils\test133432346569839368 1
+101C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\utils\test133432346571485908 1
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\transformer-postcss133432346495093165 1
 159C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\scope\default.js133432346540407265 0
 111C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\transformer-posthtml133432346483856069 1
-106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\transformer-svg133432346483846149 1
+106C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\transformer-svg133432346493424245 1
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\workers\src\process133432346528847129 1
 98C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\watcher133432346486586514 1
 109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\workers\index.d.ts133432346540713493 0
@@ -4945,7 +4946,7 @@
 141C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-service-worker\src\ServiceWorkerRuntime.js133432346469989096 0
 105C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-js\lib133432346531183117 1
 109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-js\LICENSE133432346464536622 0
-105C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-js\src133432346458040110 1
+105C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-js\src133432346533085734 1
 128C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\runtime-js\src\helpers\.eslintrc.json133432346539215583 0
 117C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\fixtures\context133432346616927232 1
 115C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\packager-js\src\utils.js133432346515537341 0
@@ -5343,7 +5344,7 @@
 113C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\lib133432346472742946 1
 163C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules\csso\lib\replace\property\font-weight.js133432346533142978 0
 117C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\LICENSE133432346459744429 0
-122C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules133432346343329115 1
+122C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules133432346796851205 1
 122C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\package.json133432346486217941 0
 128C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\src\svgMappings.js133432346482535095 0
 127C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\optimizer-htmlnano\node_modules\.bin133432346799133497 1
@@ -5649,7 +5650,7 @@
 121C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\fixtures\main-global133432346622317565 1
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\BundleGraph.test.js133432346543588369 0
 121C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\EntryRequest.test.js133432346563086032 0
-109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\fixtures133432346627078870 1
+109C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\fixtures133432346627357217 1
 121C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\ParcelConfig.test.js133432346598606038 0
 128C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\ParcelConfigRequest.test.js133432346599718806 0
 120C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\@parcel\core\test\PublicAsset.test.js133432346601651771 0
@@ -5886,8 +5887,9 @@
 96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\.bin\svgo.ps1133432346799560316 0
 110C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\.bin\update-browserslist-db133432346800189885 0
 114C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\node_modules\.bin\update-browserslist-db.cmd133432346800189885 0
-95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\favicon.8b2f57bf.png133432348843032423 0
+95C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\favicon.8b2f57bf.png133432354093630711 0
 97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.4ca1c3e6.css.map133432349013706251 0
-92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.e37f48ea.js133432348843501788 0
-96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.e37f48ea.js.map133432348843611816 0
-85C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.html133432349013311235 0
+97C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.97fc45f8.css.map133432384586813554 0
+92C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.e37f48ea.js133432354093947296 0
+96C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.e37f48ea.js.map133432354093947296 0
+85C:\Users\natalia.veras.campos\Desktop\Education\percentage-calculator\dist\index.html133432384586712288 0
